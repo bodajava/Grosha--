@@ -1,0 +1,19 @@
+.scroll-float {
+  overflow: hidden;
+  line-height: 1;
+}
+
+.scroll-float-text {
+  display: inline-block;
+  font-size: clamp(3rem, 12vw, 12rem);
+  font-weight: 900;
+  text-align: center;
+  line-height: 0.9;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.char {
+  display: inline-block;
+}
