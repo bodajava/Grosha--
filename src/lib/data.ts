@@ -33,10 +33,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Bottoms", "Quarters"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin C", value: "20% DV" },
+        { label: "Vitamin K", value: "12% DV" },
+        { label: "Vitamin B6", value: "5% DV" }
+      ],
+      minerals: [
+        { label: "Magnesium", value: "15% DV" },
+        { label: "Potassium", value: "10% DV" },
+        { label: "Iron", value: "4% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -49,10 +57,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Diced", "Whole calibrated", "Quarters", "Whole uncalibrated"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin C", value: "97% DV" },
+        { label: "Folate (B9)", value: "6% DV" },
+        { label: "Vitamin K", value: "3% DV" }
+      ],
+      minerals: [
+        { label: "Manganese", value: "18% DV" },
+        { label: "Potassium", value: "4% DV" },
+        { label: "Magnesium", value: "3% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -64,8 +80,16 @@ export const products: Product[] = [
     image: "/assets/products/mixed-vegetables.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin A", value: "40% DV" },
+        { label: "Vitamin C", value: "15% DV" },
+        { label: "Vitamin K", value: "20% DV" }
+      ],
+      minerals: [
+        { label: "Iron", value: "6% DV" },
+        { label: "Potassium", value: "5% DV" },
+        { label: "Calcium", value: "4% DV" }
+      ]
     },
     seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     storage: "Keep frozen below -18° C"
@@ -79,10 +103,18 @@ export const products: Product[] = [
     image: "/assets/products/broccoli.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin C", value: "135% DV" },
+        { label: "Vitamin K", value: "116% DV" },
+        { label: "Vitamin A", value: "11% DV" }
+      ],
+      minerals: [
+        { label: "Folate", value: "14% DV" },
+        { label: "Manganese", value: "10% DV" },
+        { label: "Potassium", value: "8% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -95,10 +127,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams"],
     types: ["Minced", "Leaves"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin A", value: "70% DV" },
+        { label: "Vitamin C", value: "40% DV" },
+        { label: "Vitamin B6", value: "15% DV" }
+      ],
+      minerals: [
+        { label: "Calcium", value: "20% DV" },
+        { label: "Iron", value: "15% DV" },
+        { label: "Magnesium", value: "12% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -110,10 +150,18 @@ export const products: Product[] = [
     image: "/assets/products/green-peas.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin C", value: "40% DV" },
+        { label: "Vitamin K", value: "30% DV" },
+        { label: "Vitamin A", value: "20% DV" }
+      ],
+      minerals: [
+        { label: "Manganese", value: "12% DV" },
+        { label: "Iron", value: "10% DV" },
+        { label: "Phosphorus", value: "10% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -126,10 +174,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams"],
     types: ["Chopped", "Leaves"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin K", value: "460% DV" },
+        { label: "Vitamin A", value: "56% DV" },
+        { label: "Vitamin C", value: "14% DV" }
+      ],
+      minerals: [
+        { label: "Iron", value: "15% DV" },
+        { label: "Calcium", value: "10% DV" },
+        { label: "Potassium", value: "8% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -142,10 +198,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Extra(0:2.5)", "One(3.5:4.5)", "Zero(2.5:3.5)", "Two(4.5:5.5)"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin C", value: "26% DV" },
+        { label: "Vitamin K", value: "26% DV" },
+        { label: "Vitamin A", value: "7% DV" }
+      ],
+      minerals: [
+        { label: "Manganese", value: "15% DV" },
+        { label: "Magnesium", value: "14% DV" },
+        { label: "Calcium", value: "8% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -158,10 +222,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Diced"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin B6", value: "20% DV" },
+        { label: "Vitamin E", value: "15% DV" },
+        { label: "Vitamin C", value: "5% DV" }
+      ],
+      minerals: [
+        { label: "Manganese", value: "16% DV" },
+        { label: "Potassium", value: "13% DV" },
+        { label: "Copper", value: "12% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -174,8 +246,16 @@ export const products: Product[] = [
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Cut", "Whole"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin K", value: "18% DV" },
+        { label: "Vitamin C", value: "10% DV" },
+        { label: "Vitamin A", value: "8% DV" }
+      ],
+      minerals: [
+        { label: "Manganese", value: "7% DV" },
+        { label: "Potassium", value: "4% DV" },
+        { label: "Iron", value: "3% DV" }
+      ]
     },
     seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     storage: "Keep frozen below -18° C"
@@ -190,10 +270,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Single peeled", "Double peeled"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Folate (B9)", value: "40% DV" },
+        { label: "Vitamin K", value: "10% DV" },
+        { label: "Vitamin C", value: "4% DV" }
+      ],
+      minerals: [
+        { label: "Manganese", value: "25% DV" },
+        { label: "Copper", value: "20% DV" },
+        { label: "Iron", value: "14% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -205,10 +293,18 @@ export const products: Product[] = [
     image: "/assets/products/cauliflower.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin C", value: "77% DV" },
+        { label: "Vitamin K", value: "20% DV" },
+        { label: "Vitamin B6", value: "10% DV" }
+      ],
+      minerals: [
+        { label: "Folate", value: "14% DV" },
+        { label: "Potassium", value: "9% DV" },
+        { label: "Manganese", value: "8% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   },
   {
@@ -221,10 +317,18 @@ export const products: Product[] = [
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Kernels"],
     nutrition: {
-      vitamins: [],
-      minerals: []
+      vitamins: [
+        { label: "Vitamin K", value: "16% DV" },
+        { label: "Vitamin C", value: "12% DV" },
+        { label: "Vitamin B6", value: "4% DV" }
+      ],
+      minerals: [
+        { label: "Potassium", value: "5% DV" },
+        { label: "Copper", value: "5% DV" },
+        { label: "Manganese", value: "4% DV" }
+      ]
     },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    seasonalCalendar: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   }
 ];

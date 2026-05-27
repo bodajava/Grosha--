@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import { Playfair_Display, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-playfair",
+  display: "swap",
+  style: ["normal", "italic"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
-const manrope = Manrope({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -26,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${inter.variable} ${interTight.variable} ${jetbrains.variable}`}>
       <body className="font-sans min-h-full flex flex-col">
         {children}
       </body>

@@ -1,23 +1,48 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/amr/Navbar";
 import { Footer } from "@/components/amr/Footer";
 import { ProductCard } from "@/components/amr/ProductCard";
 import { products } from "@/lib/data";
-import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 
 const categories = [
-  { id: "all", label: "All Product" },
+  { id: "all", label: "All Products" },
   { id: "Fruits", label: "Berries & Fruits" },
-  { id: "Vegetables", label: "IQF Vegetables" },
-  { id: "custom", label: "Custom Packaging" }
+  { id: "Vegetables", label: "IQF Vegetables" }
 ];
 
 export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const elements = document.querySelectorAll('[data-reveal]:not([data-revealed])');
+    if (!elements.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      elements.forEach(el => {
+        (el as HTMLElement).dataset.revealed = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).dataset.revealed = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    elements.forEach(el => observer.observe(el));
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
+  }, [activeCategory, searchQuery]);
 
   const filteredProducts = products.filter(p => {
     const q = searchQuery.toLowerCase().trim();
@@ -32,120 +57,147 @@ export default function ProductsPage() {
   const fruits = filteredProducts.filter(p => p.category === "Fruits");
   const vegetables = filteredProducts.filter(p => p.category === "Vegetables");
 
-  const hasResults = filteredProducts.length > 0;
-
   return (
-    <main className="relative min-h-screen bg-[#fdffd8] text-[#38382f] overflow-x-hidden">
-      <Navbar />
+    <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
+      {/* Editorial side-rails */}
+      <div className="side-rail right">
+        <span className="rail-text">GROSHA — Vol. 01 · Issue Nº 01 · Product Catalog</span>
+      </div>
+      <div className="side-rail left">
+        <span className="rail-text">IQF Fruits · IQF Vegetables · Non-GMO · Premium</span>
+      </div>
 
-      {/* Hero Section */}
-      <section className="pt-32 md:pt-48 pb-12 px-6 md:px-12 bg-[#fdffd8]">
-        <div className="max-w-7xl mx-auto text-center space-y-8">
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-6xl md:text-[10rem] font-heading font-black tracking-tighter leading-[0.8] uppercase"
-          >
-            Artisan Frozen <br /> <span className="text-[#f8d472] italic underline decoration-wavy decoration-1 underline-offset-8">Excellence.</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-[#65655a] max-w-3xl mx-auto font-medium"
-          >
-            Preserving the vibrant integrity of nature's finest harvests through advanced cryogenic precision.
-          </motion.p>
-        </div>
-      </section>
+      <div className="shell">
+        <Navbar />
 
-      {/* Categories Bar */}
-      <section className="sticky top-20 z-40 bg-[#fdffd8]/80 backdrop-blur-xl border-y border-[#eae9db] py-6 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-wrap items-center gap-4">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all ${activeCategory === cat.id
-                    ? "bg-[#38382f] text-white shadow-lg"
-                    : "bg-white text-[#38382f] border border-[#eae9db] hover:bg-[#fcf9ef]"
-                  }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="relative w-full md:w-80 group">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search catalog..."
-              className="w-full bg-white rounded-full py-4 pl-12 pr-6 text-xs font-medium border border-[#eae9db] focus:outline-none focus:ring-2 focus:ring-[#366b7a]/20 transition-all shadow-sm"
-            />
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#828176]" />
-          </div>
-        </div>
-      </section>
-
-      {/* Catalog Content */}
-      <section className="py-24 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto space-y-32">
-
-          {!hasResults ? (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="py-40 text-center"
-            >
-              <h2 className="text-4xl font-heading font-black uppercase text-[#828176]/40">No products found match your search.</h2>
-              <button 
-                onClick={() => {setSearchQuery(""); setActiveCategory("all");}}
-                className="mt-8 text-xs font-black uppercase tracking-widest text-[#366b7a] underline"
-              >
-                Clear all filters
-              </button>
-            </motion.div>
-          ) : (
-            <div className="space-y-32">
-              {/* IQF Fruits Section */}
-              {fruits.length > 0 && (
-                <div className="space-y-16">
-                  <div className="flex items-center gap-8 px-4">
-                    <h2 className="text-4xl md:text-7xl font-heading font-black uppercase tracking-tighter shrink-0">IQF <span className="text-[#9a5035] italic">Fruits.</span></h2>
-                    <div className="h-px flex-1 bg-[#eae9db]" />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-                    {fruits.map((product) => (
-                      <ProductCard key={product.id} product={product} />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* IQF Vegetables Section */}
-              {vegetables.length > 0 && (
-                <div className="space-y-16">
-                  <div className="flex items-center gap-8 px-4">
-                    <h2 className="text-4xl md:text-7xl font-heading font-black uppercase tracking-tighter shrink-0">IQF <span className="text-[#366b7a] italic">Vegetables.</span></h2>
-                    <div className="h-px flex-1 bg-[#eae9db]" />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
-                    {vegetables.map((p) => (
-                      <ProductCard key={p.id} product={p} />
-                    ))}
-                  </div>
-                </div>
-              )}
+        {/* HERO SECTION */}
+        <section className="hero" id="products-hero" style={{ paddingBottom: "60px" }}>
+          <div className="container">
+            <div className="sec-rule">
+              <span className="roman">I.</span>
+              <span className="meta-grp">
+                <span>Products / Curated Inventory</span>
+                <span className="dot-mark">•</span>
+                <span>GROSHA / Volume 01</span>
+              </span>
+              <span>001 / 002</span>
             </div>
-          )}
-        </div>
-      </section>
+            
+            <div className="hero-grid" style={{ gridTemplateColumns: "1fr" }}>
+              <div className="hero-copy" style={{ textAlign: "center", maxWidth: "900px", margin: "0 auto" }}>
+                <span className="label" data-reveal>NATURE'S FINEST INVENTORY <span className="ix">· Nº 05</span></span>
+                <h1 className="display" data-reveal style={{ fontSize: "clamp(48px, 8vw, 110px)", lineHeight: 0.9 }}>
+                  Artisan Frozen <span className="coral italic">Excellence</span><span className="dot">.</span>
+                </h1>
+                <p className="lead" data-reveal style={{ margin: "24px auto 0 auto", maxWidth: "700px" }}>
+                  Preserving the vibrant integrity of nature's finest harvests through advanced cryogenic precision.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <Footer />
-    </main>
+        {/* FILTER & SEARCH BAR */}
+        <section style={{ borderTop: "1px solid var(--line-soft)", borderBottom: "1px solid var(--line-soft)", padding: "24px 0", background: "var(--bone)" }}>
+          <div className="container">
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "24px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                {categories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    className="btn btn-ghost"
+                    style={{
+                      background: activeCategory === cat.id ? "var(--ink)" : "var(--paper)",
+                      color: activeCategory === cat.id ? "var(--paper)" : "var(--ink)",
+                      borderColor: "var(--line-soft)",
+                      padding: "10px 24px",
+                      fontSize: "10px"
+                    }}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+
+              <div style={{ position: "relative", width: "100%", maxWidth: "320px" }}>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search catalog..."
+                  style={{
+                    width: "100%",
+                    padding: "14px 20px 14px 44px",
+                    borderRadius: "30px",
+                    background: "var(--paper)",
+                    border: "1px solid var(--line-soft)",
+                    color: "var(--ink)",
+                    fontSize: "13px",
+                    outline: "none"
+                  }}
+                />
+                <Search size={16} style={{ position: "absolute", left: "18px", top: "50%", transform: "translateY(-50%)", color: "var(--ink-mute)" }} />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PRODUCTS GRID */}
+        <section style={{ padding: "80px 0" }}>
+          <div className="container">
+            {filteredProducts.length === 0 ? (
+              <div style={{ textAlign: "center", padding: "100px 0" }} data-reveal>
+                <h2 className="display" style={{ fontSize: "28px" }}>No products matched your search.</h2>
+                <button
+                  onClick={() => { setSearchQuery(""); setActiveCategory("all"); }}
+                  style={{ marginTop: "24px", background: "none", border: "none", textDecoration: "underline", color: "var(--coral)", fontWeight: 900, cursor: "pointer", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em" }}
+                >
+                  Clear all filters
+                </button>
+              </div>
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: "80px" }}>
+                {/* Fruits Section */}
+                {fruits.length > 0 && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                      <h2 className="display" style={{ fontSize: "clamp(24px, 4vw, 48px)" }}>IQF <span className="coral italic">Fruits.</span></h2>
+                      <div style={{ flex: 1, height: "1px", background: "var(--line-soft)" }} />
+                    </div>
+                    <div className="lab-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "32px" }}>
+                      {fruits.map((product) => (
+                        <div key={product.id} data-reveal>
+                          <ProductCard product={product} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Vegetables Section */}
+                {vegetables.length > 0 && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                      <h2 className="display" style={{ fontSize: "clamp(24px, 4vw, 48px)" }}>IQF <span className="olive italic">Vegetables.</span></h2>
+                      <div style={{ flex: 1, height: "1px", background: "var(--line-soft)" }} />
+                    </div>
+                    <div className="lab-grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "32px" }}>
+                      {vegetables.map((product) => (
+                        <div key={product.id} data-reveal>
+                          <ProductCard product={product} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </div>
   );
 }

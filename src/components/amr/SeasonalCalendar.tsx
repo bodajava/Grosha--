@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface SeasonalCalendarProps {
@@ -14,9 +13,9 @@ export const SeasonalCalendar = ({ months = [] }: SeasonalCalendarProps) => {
   ];
 
   return (
-    <div className="bg-white border border-[#eae9db] shadow-sm hover:shadow-ambient transition-shadow rounded-[2rem] p-8">
-      <h3 className="text-xl font-heading font-bold text-[#38382f] mb-6 flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-[#f8d472] animate-pulse" />
+    <div className="bg-white border border-[#eae9db] shadow-sm hover:shadow-ambient transition-all duration-300 rounded-[2.5rem] p-10">
+      <h3 className="text-xl font-heading font-black text-[#38382f] mb-8 flex items-center gap-3 uppercase tracking-tight">
+        <span className="w-3 h-3 rounded-full bg-[#f8d472] animate-pulse" />
         Seasonal Harvest Calendar
       </h3>
       
@@ -24,16 +23,13 @@ export const SeasonalCalendar = ({ months = [] }: SeasonalCalendarProps) => {
         {monthNames.map((month, index) => {
           const isPeak = months && months[index] === 1;
           return (
-            <motion.div
+            <div
               key={month}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.05 }}
               className="flex flex-col items-center gap-2"
             >
               <div
                 className={cn(
-                  "w-full aspect-square rounded-xl flex items-center justify-center text-[10px] font-black uppercase tracking-tighter transition-all duration-500",
+                  "w-full aspect-square rounded-xl flex items-center justify-center text-[10px] font-black uppercase tracking-tighter transition-all duration-300",
                   isPeak 
                     ? "bg-[#366b7a] text-white shadow-md scale-105"
                     : "bg-[#f0eee2] text-[#9f9d96] border border-[#eae9db]"
@@ -42,12 +38,12 @@ export const SeasonalCalendar = ({ months = [] }: SeasonalCalendarProps) => {
                 {month}
               </div>
               <span className={cn(
-                "text-[10px] uppercase font-bold tracking-widest",
+                "text-[9px] uppercase font-black tracking-widest",
                 isPeak ? "text-[#366b7a]" : "text-[#9f9d96]"
               )}>
                 {isPeak ? "Peak" : "Off"}
               </span>
-            </motion.div>
+            </div>
           );
         })}
       </div>

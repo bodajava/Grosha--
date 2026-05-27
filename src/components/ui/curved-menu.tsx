@@ -64,7 +64,7 @@ const defaultNavItems: iNavItem[] = [
 	},
 	{
 		heading: "Products",
-		href: "/catalog",
+		href: "/products",
 		subheading: "The IQF collection",
 	},
 	{

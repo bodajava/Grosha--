@@ -1,16 +1,11 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "@/components/amr/Navbar";
 import { Footer } from "@/components/amr/Footer";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Phone, MapPin, Loader2, CheckCircle2 } from "lucide-react";
 
 export default function ContactPage() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
@@ -19,15 +14,32 @@ export default function ContactPage() {
     message: ""
   });
 
-  useGSAP(() => {
-    gsap.from(".reveal-contact", {
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.15,
-      ease: "power3.out"
-    });
-  }, { scope: containerRef });
+  useEffect(() => {
+    const elements = document.querySelectorAll('[data-reveal]:not([data-revealed])');
+    if (!elements.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      elements.forEach(el => {
+        (el as HTMLElement).dataset.revealed = 'true';
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).dataset.revealed = 'true';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    elements.forEach(el => observer.observe(el));
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,134 +66,141 @@ export default function ContactPage() {
   };
 
   return (
-    <main ref={containerRef} className="relative min-h-screen bg-[#fdffd8] text-[#38382f] overflow-x-hidden">
-      <Navbar />
+    <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
+      {/* Editorial side-rails */}
+      <div className="side-rail right">
+        <span className="rail-text">GROSHA — Vol. 01 · Issue Nº 01 · Contact</span>
+      </div>
+      <div className="side-rail left">
+        <span className="rail-text">Inquiries · Bulk Orders · Customer Relations</span>
+      </div>
 
-      <section className="pt-32 md:pt-48 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start pb-24">
-        {/* Left Side: Editorial Content */}
-        <div className="lg:col-span-5 space-y-12 order-last lg:order-first">
-          <header className="reveal-contact space-y-6">
-            <span className="inline-block px-6 py-2 bg-[#ade2f4] text-[#1a5362] rounded-full font-black text-[10px] md:text-xs tracking-[0.3em] uppercase">
-              LET'S CONNECT
-            </span>
-            <h1 className="text-5xl md:text-8xl font-heading font-black text-[#38382f] leading-[0.9] tracking-tighter uppercase text-left">
-              GET IN <br /> <span className="text-[#366b7a] italic">TOUCH</span>
-            </h1>
-            <p className="text-lg md:text-xl text-[#000000]/60 max-w-md font-medium leading-relaxed mt-10">
-              Whether you're looking for premium frozen ingredients for your kitchen or scaling bulk exports, our doors are always open.
-            </p>
-          </header>
+      <div className="shell">
+        <Navbar />
 
-          <div className="space-y-10">
-            {/* Contact Details */}
-            {[
-              { icon: <MapPin size={24} />, title: "Global Headquarters", detail: "AMR Building, Giza, Egypt" },
-              { icon: <Phone size={24} />, title: "Direct Inquiry", detail: "+201009778868" },
-              { icon: <Mail size={24} />, title: "Digital Mailbox", detail: "Sales@goldengrainglobal.com", isEmail: true }
-            ].map((item, i) => (
-              <div key={i} className="reveal-contact flex items-start gap-8 group">
-                <div className="w-14 h-14 rounded-2xl bg-[#fcf9ef] flex items-center justify-center text-[#366b7a] group-hover:bg-[#366b7a] group-hover:text-white transition-all duration-300 shadow-sm flex-shrink-0">
-                  {item.icon}
+        {/* HERO / CONTACT SECTION */}
+        <section className="hero pt-0" id="contact-hero" style={{ paddingBottom: "100px" }}>
+          <div className="container">
+            <div className="sec-rule">
+              <span className="roman">I.</span>
+              <span className="meta-grp">
+                <span>Contact / Global Inquiries</span>
+                <span className="dot-mark">•</span>
+                <span>GROSHA / Volume 01</span>
+              </span>
+              <span>001 / 002</span>
+            </div>
+            
+            <div className="hero-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "60px", alignItems: "start" }}>
+              {/* Left Side: Info */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
+                <div className="hero-copy">
+                  <span className="label" data-reveal>LET'S CONNECT <span className="ix">· Nº 04</span></span>
+                  <h1 className="display" data-reveal>Get in <span className="coral italic">Touch</span><span className="dot">.</span></h1>
+                  <p className="lead" data-reveal>Whether you're looking for premium frozen ingredients for your kitchen or scaling bulk exports, our doors are always open.</p>
                 </div>
-                <div>
-                  <h3 className="font-heading font-black text-xl text-[#38382f] uppercase tracking-tight mb-2">{item.title}</h3>
-                  <p className={item.isEmail ? "text-xs font-black text-[#366b7a] uppercase tracking-widest" : "text-[#65655a] font-medium leading-relaxed"}>
-                    {item.detail}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Right Side: Contact Form */}
-        <div className="lg:col-span-7 w-full order-first lg:order-last mb-16 lg:mb-0">
-          <div className="reveal-contact bg-[#fcf9ef] p-8 md:p-16 rounded-[4rem] shadow-ambient border border-[#eae9db]/30">
-            <form onSubmit={handleSubmit} className="space-y-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <label className="text-[10px] font-black text-[#38382f]/40 ml-4 uppercase tracking-[0.2em]">Your Name</label>
-                  <input
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-8 py-5 bg-white border-transparent focus:border-[#366b7a] focus:ring-4 focus:ring-[#366b7a]/5 rounded-3xl transition-all outline-none font-medium"
-                    placeholder="Full Name"
-                    type="text"
-                  />
-                </div>
-                <div className="space-y-4">
-                  <label className="text-[10px] font-black text-[#38382f]/40 ml-4 uppercase tracking-[0.2em]">Email Address</label>
-                  <input
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-8 py-5 bg-white border-transparent focus:border-[#366b7a] focus:ring-4 focus:ring-[#366b7a]/5 rounded-3xl transition-all outline-none font-medium"
-                    placeholder="email@domain.com"
-                    type="email"
-                  />
+                <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+                  {[
+                    { icon: <MapPin size={24} />, title: "Global Headquarters", detail: "AMR Building, Giza, Egypt", color: "var(--coral)" },
+                    { icon: <Phone size={24} />, title: "Direct Inquiry", detail: "+201009778868", color: "var(--olive)" },
+                    { icon: <Mail size={24} />, title: "Digital Mailbox", detail: "sales@goldengrainglobal.com", isEmail: true, color: "var(--mustard)" }
+                  ].map((item, i) => (
+                    <div key={i} className="lab-card" data-reveal style={{ display: "flex", alignItems: "center", gap: "20px", background: "var(--bone)", padding: "20px", borderRadius: "16px", border: "1px solid var(--line-soft)" }}>
+                      <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "var(--paper)", display: "flex", alignItems: "center", justifyContent: "center", color: item.color, padding: "12px", flexShrink: 0 }}>
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h4 style={{ fontSize: "14px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--ink)", marginBottom: "4px" }}>{item.title}</h4>
+                        <p style={{ fontSize: "13px", color: "var(--ink-mute)", wordBreak: "break-all" }}>{item.detail}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <label className="text-[10px] font-black text-[#38382f]/40 ml-4 uppercase tracking-[0.2em]">Message</label>
-                <textarea
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-8 py-5 bg-white border-transparent focus:border-[#366b7a] focus:ring-4 focus:ring-[#366b7a]/5 rounded-[2.5rem] transition-all outline-none resize-none font-medium"
-                  placeholder="Tell us about your requirements..."
-                  rows={6}
-                />
-              </div>
+              {/* Right Side: Form */}
+              <div className="lab-card" data-reveal style={{ background: "var(--paper-warm)", border: "1px solid var(--line-soft)", padding: "40px", borderRadius: "32px" }}>
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--ink-mute)", marginLeft: "4px" }}>Your Name</label>
+                    <input
+                      required
+                      type="text"
+                      placeholder="Full Name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      style={{ width: "100%", padding: "16px 24px", borderRadius: "16px", background: "var(--paper)", border: "1px solid var(--line-soft)", color: "var(--ink)", outline: "none", fontSize: "14px", transition: "border 0.2s" }}
+                      onFocus={(e) => e.target.style.borderColor = "var(--coral)"}
+                      onBlur={(e) => e.target.style.borderColor = "var(--line-soft)"}
+                    />
+                  </div>
 
-              <div className="relative">
-                <AnimatePresence mode="wait">
-                  {submitStatus === "success" ? (
-                    <motion.div
-                      key="success"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 p-8 rounded-[2.5rem] flex items-center justify-center gap-4 mb-6"
-                    >
-                      <CheckCircle2 className="w-6 h-6" />
-                      <span className="font-black uppercase tracking-widest text-xs">Message Sent Successfully!</span>
-                    </motion.div>
-                  ) : submitStatus === "error" ? (
-                    <motion.div
-                      key="error"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="bg-red-500/10 border border-red-500/20 text-red-600 p-8 rounded-[2.5rem] flex items-center justify-center gap-4 mb-6"
-                    >
-                      <span className="font-black uppercase tracking-widest text-xs">Failed to send message. Please try again.</span>
-                    </motion.div>
-                  ) : null}
-                </AnimatePresence>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--ink-mute)", marginLeft: "4px" }}>Email Address</label>
+                    <input
+                      required
+                      type="email"
+                      placeholder="email@domain.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      style={{ width: "100%", padding: "16px 24px", borderRadius: "16px", background: "var(--paper)", border: "1px solid var(--line-soft)", color: "var(--ink)", outline: "none", fontSize: "14px", transition: "border 0.2s" }}
+                      onFocus={(e) => e.target.style.borderColor = "var(--coral)"}
+                      onBlur={(e) => e.target.style.borderColor = "var(--line-soft)"}
+                    />
+                  </div>
 
-                <Button
-                  disabled={isSubmitting}
-                  variant="primaryGradient"
-                  className="w-full py-10 rounded-full font-heading font-black text-xl shadow-2xl flex items-center justify-center gap-4 group uppercase tracking-widest h-20 transition-all border-none disabled:opacity-50"
-                  type="submit"
-                >
-                  {isSubmitting ? (
-                    <Loader2 className="w-6 h-6 animate-spin" />
-                  ) : (
-                    <>
-                      Send Message <Send className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--ink-mute)", marginLeft: "4px" }}>Message</label>
+                    <textarea
+                      required
+                      placeholder="Tell us about your requirements..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      rows={5}
+                      style={{ width: "100%", padding: "16px 24px", borderRadius: "16px", background: "var(--paper)", border: "1px solid var(--line-soft)", color: "var(--ink)", outline: "none", fontSize: "14px", resize: "none", transition: "border 0.2s" }}
+                      onFocus={(e) => e.target.style.borderColor = "var(--coral)"}
+                      onBlur={(e) => e.target.style.borderColor = "var(--line-soft)"}
+                    />
+                  </div>
+
+                  {submitStatus === "success" && (
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "16px", borderRadius: "16px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", color: "#10b981", fontSize: "13px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                      <CheckCircle2 size={18} /> Message Sent Successfully!
+                    </div>
                   )}
-                </Button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
 
-      <Footer />
-    </main>
+                  {submitStatus === "error" && (
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "16px", borderRadius: "16px", background: "rgba(239, 68, 68, 0.1)", border: "1px solid rgba(239, 68, 68, 0.2)", color: "#ef4444", fontSize: "13px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                      Failed to send message. Please try again.
+                    </div>
+                  )}
+
+                  <button
+                    disabled={isSubmitting}
+                    type="submit"
+                    className="btn btn-primary"
+                    style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", padding: "20px" }}
+                  >
+                    {isSubmitting ? (
+                      <Loader2 size={20} className="animate-spin" />
+                    ) : (
+                      <>
+                        Send Message
+                        <span className="arrow">
+                          <svg viewBox="0 0 24 24" style={{ width: "18px", height: "18px" }}><path d="M5 19L19 5M19 5H8M19 5v11" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+                        </span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </div>
   );
 }

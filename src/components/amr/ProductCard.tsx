@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface ProductCardProps {
   product: Product;
@@ -16,9 +15,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       href={`/products/${product.id}`}
       className="group block h-full"
     >
-      <motion.div
-        whileHover={{ y: -5 }}
-        className="bg-white rounded-[4rem] border border-[#eae9db] overflow-hidden flex flex-col shadow-sm group-hover:shadow-ambient transition-all duration-500 h-full"
+      <div
+        className="bg-white rounded-[4rem] border border-[#eae9db] overflow-hidden flex flex-col shadow-sm group-hover:shadow-ambient transition-all duration-500 transform group-hover:-translate-y-1.5 h-full"
       >
         {/* Image Container */}
         <div className="relative aspect-square overflow-hidden bg-[#fcf9ef] flex-shrink-0">
@@ -53,7 +51,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             {product.name}
           </h3>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 };

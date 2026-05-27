@@ -3,115 +3,147 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/ui/curved-menu";
-import { cn } from "@/lib/utils";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 export const Navbar = () => {
-  const pathname = usePathname();
-  const { scrollY } = useScroll();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 50) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 120 && currentScrollY > lastScrollY) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+      setLastScrollY(currentScrollY);
+    };
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/products", label: "Products" },
-    { href: "/quality", label: "Quality" },
-    { href: "/logistics", label: "Export" },
-  ];
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <div className="fixed top-0 left-0 w-full z-[100] flex justify-center pointer-events-none">
-      <motion.nav
-        initial={false}
-        animate={{
-          width: isScrolled ? "90%" : "100%",
-          top: isScrolled ? 20 : 0,
-          borderRadius: isScrolled ? "100px" : "0px",
-          backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.7)" : "rgba(253, 255, 216, 0.8)",
-          boxShadow: isScrolled 
-            ? "0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.4)" 
-            : "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 30,
-        }}
-        className={cn(
-          "pointer-events-auto backdrop-blur-2xl border-b border-[#eae9db]/50 relative transition-colors duration-500",
-          isScrolled && "border border-white/40"
-        )}
-      >
-        <div className={cn(
-          "max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center transition-all duration-500",
-          isScrolled ? "h-[70px]" : "h-[90px]"
-        )}>
-          <Link
-            href="/"
-            className="relative w-32 h-10 hover:scale-105 transition-transform flex items-center shrink-0"
-          >
-            <img
-              src="/assets/frouts/WhatsApp_Image_2026-04-14_at_23.57.31-removebg-preview.png"
-              alt="grosha"
-              className="object-contain object-left w-[80px]"
-            />
+    <>
+      <div className="topbar">
+        <div className="container topbar-inner">
+          <span><b>AF / 2026</b> &nbsp;·&nbsp; Vol. 01 / Issue Nº 01</span>
+          <span className="mid">
+            <span>Filed under <b className="coral">Artisan IQF · Cold Chain</b></span>
+            <span>Giza, Egypt · Global Delivery</span>
+          </span>
+          <span className="right">
+            <Link className="topbar-link" href="/contact"><span className="pulse"></span>Export ready · v1.0</Link>
+            <span><b>EN</b> · AR</span>
+          </span>
+        </div>
+      </div>
+
+      <header className={`nav ${isHidden ? "is-hidden" : ""}`}>
+        <div className="container nav-inner">
+          <Link href="/" className="brand">
+            <span className="brand-mark">
+              <Image
+                src="/assets/mpo90tsn-WhatsApp_Image_2026-04-14_at_23.57.31-removebg-preview.png"
+                alt="GROSHA"
+                width={80}
+                height={36}
+                className="object-contain"
+                style={{ height: '36px', width: 'auto' }}
+                priority
+              />
+            </span>
+            <span>GROSHA</span>
+            <span className="brand-meta"><b>Export Nº 01</b>Giza / Egypt / Global</span>
           </Link>
-
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-12">
-            <div className="flex items-center space-x-10">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      "font-heading font-black tracking-[0.2em] text-[9px] uppercase transition-all duration-300 relative group py-2",
-                      isActive ? "text-[#366b7a]" : "text-[#38382f]/50 hover:text-[#366b7a]"
-                    )}
-                  >
-                    {link.label}
-                    <motion.span 
-                      layoutId="navUnderline"
-                      className={cn(
-                        "absolute -bottom-1 left-0 w-full h-[1.5px] bg-[#366b7a] transition-transform duration-300 origin-left",
-                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                      )} 
-                    />
-                  </Link>
-                );
-              })}
-            </div>
-
-            <Button
-              asChild
-              className={cn(
-                "px-10 shadow-xl text-[9px] font-black uppercase tracking-[0.2em] rounded-full transition-all duration-500",
-                isScrolled ? "h-10 bg-[#38382f] text-white" : "h-12 bg-primary-gradient text-white"
-              )}
-            >
-              <Link href="/contact">Inquiry</Link>
-            </Button>
-          </div>
-
-          {/* Advanced Curved Menu (Mobile Overlay) */}
-          <div className="md:hidden">
-            <Header />
+          <nav>
+            <ul className="nav-links">
+              <li><Link href="/#about">About</Link></li>
+              <li><Link href="/#products">Products<span className="num">12</span></Link></li>
+              <li><Link href="/#quality">Quality</Link></li>
+              <li><Link href="/#logistics">Logistics</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+            </ul>
+          </nav>
+          <div className="nav-side">
+            <Link className="nav-cta ghost" href="/#products">Catalog</Link>
+            <Link className="nav-cta" href="/contact">Get a Quote</Link>
+            <button onClick={() => setIsMenuOpen(true)} className="md:hidden block p-2 text-ink" aria-label="Toggle Menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+            <span className="status-dot" aria-hidden="true"></span>
           </div>
         </div>
-      </motion.nav>
-    </div>
+      </header>
+
+      {/* Mobile Menu Drawer Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-[var(--paper)] z-[999] p-8 flex flex-col justify-between md:hidden">
+          <div className="flex justify-between items-center">
+            <Link href="/" className="brand" onClick={() => setIsMenuOpen(false)}>
+              <span className="brand-mark">
+                <Image
+                  src="/assets/mpo90tsn-WhatsApp_Image_2026-04-14_at_23.57.31-removebg-preview.png"
+                  alt="GROSHA"
+                  width={80}
+                  height={36}
+                  className="object-contain"
+                  style={{ height: '36px', width: 'auto' }}
+                />
+              </span>
+              <span>GROSHA</span>
+            </Link>
+            <button onClick={() => setIsMenuOpen(false)} className="p-2 text-xl font-bold text-ink" aria-label="Close Menu">
+              ×
+            </button>
+          </div>
+
+          <nav className="my-10">
+            <ul className="flex flex-col gap-6">
+              <li>
+                <Link href="/#about" onClick={() => setIsMenuOpen(false)} className="text-3xl font-bold font-sans text-ink hover:text-coral transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/#products" onClick={() => setIsMenuOpen(false)} className="text-3xl font-bold font-sans text-ink hover:text-coral transition-colors">
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/#quality" onClick={() => setIsMenuOpen(false)} className="text-3xl font-bold font-sans text-ink hover:text-coral transition-colors">
+                  Quality
+                </Link>
+              </li>
+              <li>
+                <Link href="/#logistics" onClick={() => setIsMenuOpen(false)} className="text-3xl font-bold font-sans text-ink hover:text-coral transition-colors">
+                  Logistics
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-3xl font-bold font-sans text-ink hover:text-coral transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          <div className="flex flex-col gap-4">
+            <Link href="/#products" onClick={() => setIsMenuOpen(false)} className="nav-cta ghost text-center py-4 block">
+              Catalog
+            </Link>
+            <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="nav-cta text-center py-4 block">
+              Get a Quote
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
+

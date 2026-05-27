@@ -13,6 +13,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/catalog',
+        destination: '/products',
+        permanent: true,
+      },
+      {
+        source: '/catalog/:id',
+        destination: '/products/:id',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
