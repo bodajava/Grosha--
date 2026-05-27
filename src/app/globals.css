@@ -2264,3 +2264,106 @@ footer {
   font-size: 12px;
   padding: 0 4px;
 }
+
+/* ─── Product Details Page ───────────────────────────────────────────── */
+.pd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.pd-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 2.5rem;
+  border: 1px solid var(--line-soft);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pd-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: 14px;
+}
+
+.pd-card-title {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #366b7a;
+}
+
+.pd-card-sub {
+  font-size: 9px;
+  font-family: var(--mono);
+  color: #65655a;
+}
+
+.pd-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pd-brand-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow);
+}
+
+.pd-brand-img-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(21,20,15,0.65) 0%, transparent 100%);
+  padding: 24px 28px;
+}
+
+/* ── Mobile collapse ── */
+@media (max-width: 880px) {
+  .pd-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pd-benefits-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .pd-card {
+    border-radius: 2rem;
+    padding: 24px;
+  }
+
+  .pd-brand-img {
+    border-radius: 2rem;
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 560px) {
+  .pd-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-card {
+    padding: 20px;
+    border-radius: 1.5rem;
+  }
+
+  .pd-brand-img {
+    border-radius: 1.5rem;
+  }
+}
