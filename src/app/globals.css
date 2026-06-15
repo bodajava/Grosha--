@@ -2112,12 +2112,6 @@ footer {
   }
 }
 
-@media (max-width: 1200px) {
-  .labs-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (max-width: 1080px) {
   .container {
     padding: 0 32px;
@@ -2132,16 +2126,8 @@ footer {
   }
 
   .labs-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .labs-head {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .pills {
-    justify-content: flex-start;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
   }
 
   .gallery-grid {
@@ -2175,8 +2161,13 @@ footer {
     gap: 50px;
   }
 
+  .labs-head,
   .method-head {
     grid-template-columns: 1fr;
+  }
+
+  .labs-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .method-grid {
@@ -2231,6 +2222,10 @@ footer {
 }
 
 @media (max-width: 660px) {
+  .labs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .gallery-grid {
     grid-template-columns: 1fr;
   }
