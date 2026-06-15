@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/merv/Navbar";
 import { Footer } from "@/components/merv/Footer";
-import { ProductCatalog } from "@/components/ProductCatalog";
+import { ProductProvider, ProductPills, ProductGrid } from "@/components/ProductCatalog";
 import { RevealObserver } from "@/components/RevealObserver";
 
 export const metadata: Metadata = {
@@ -319,13 +319,16 @@ export default function Home() {
                 </span>
                 <span>004 / 008</span>
               </div>
-              <div className="labs-head">
-                <div data-reveal>
-                  <span className="label">Our products <span className="ix">· Nº 04</span></span>
-                  <h2 className="display" style={{ marginTop: "30px" }}>A curated selection of <em>premium</em> IQF frozen <em>produce</em><span className="dot">.</span></h2>
+              <ProductProvider>
+                <div className="labs-head">
+                  <div data-reveal>
+                    <span className="label">Our products <span className="ix">· Nº 04</span></span>
+                    <h2 className="display" style={{ marginTop: "30px" }}>A curated selection of <em>premium</em> IQF frozen <em>produce</em><span className="dot">.</span></h2>
+                  </div>
+                  <ProductPills />
                 </div>
-              </div>
-              <ProductCatalog />
+                <ProductGrid />
+              </ProductProvider>
               <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }} data-reveal>
                 <a className="btn btn-primary" href="#contact">
                   Request full catalogue
