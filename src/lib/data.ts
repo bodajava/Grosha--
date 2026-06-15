@@ -18,48 +18,26 @@ export interface Product {
   packingTypes: string[];
   types?: string[];
   nutrition: NutritionData;
-  seasonalCalendar: number[]; // 0 for off, 1 for peak
+  seasonalCalendar: number[];
   storage: string;
 }
 
 export const products: Product[] = [
   {
-    id: "artichokes",
-    name: "Artichokes",
-    category: "Vegetables",
-    shortDescription: "Either bottoms or quarters, Frosty Foods offers high-quality standards for all types of processed artichokes tailored for the consumer preferences.",
-    fullDescription: "Either bottoms or quarters, Frosty Foods offers high-quality standards for all types of processed artichokes tailored for the consumer preferences. Artichoke lovers can enjoy them in several ways, they can have them mixed with vegetables, meat, or even stuffed with seafood.\nThe “globe” can also be deep-fried, sauteed in oil, or barbecued, and the most popular part, the “heart” of the artichoke to be utilized in main dishes!",
-    image: "/assets/products/artichokes.jpg",
-    packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
-    types: ["Bottoms", "Quarters"],
-    nutrition: {
-      vitamins: [
-        { label: "Vitamin C", value: "20% DV" },
-        { label: "Vitamin K", value: "12% DV" },
-        { label: "Vitamin B6", value: "5% DV" }
-      ],
-      minerals: [
-        { label: "Magnesium", value: "15% DV" },
-        { label: "Potassium", value: "10% DV" },
-        { label: "Iron", value: "4% DV" }
-      ]
-    },
-    seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
-    storage: "Keep frozen below -18° C"
-  },
-  {
     id: "strawberry",
     name: "Strawberry",
     category: "Fruits",
-    shortDescription: "Frosty Foods provides the beloved fruit all year long, preserving its delicious taste and nutritional value through the best freezing technologies.",
-    fullDescription: "Frosty Foods provides the beloved fruit all year long, preserving its delicious taste and nutritional value through the best freezing technologies. Besides being everyone’s favorite fruit, strawberries can also be an excellent source of vitamin C and an antioxidant necessary for immune and skin health that people can now enjoy all year long!",
-    image: "/assets/products/strawberry.jpg",
+    shortDescription:
+      "Premium IQF strawberries preserved all year round with their natural sweetness, bright color, and fresh taste.",
+    fullDescription:
+      "Merv provides premium IQF strawberries all year long, preserving their delicious taste, natural color, and nutritional value through advanced freezing technologies. Strawberries are rich in vitamin C and antioxidants, making them perfect for desserts, smoothies, juices, bakery, and food service applications.",
+    image: "/assets/new image/يص.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Diced", "Whole calibrated", "Quarters", "Whole uncalibrated"],
     nutrition: {
       vitamins: [
         { label: "Vitamin C", value: "97% DV" },
-        { label: "Folate (B9)", value: "6% DV" },
+        { label: "Folate B9", value: "6% DV" },
         { label: "Vitamin K", value: "3% DV" }
       ],
       minerals: [
@@ -71,13 +49,70 @@ export const products: Product[] = [
     seasonalCalendar: [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
     storage: "Keep frozen below -18° C"
   },
+
+  {
+    id: "mango",
+    name: "Mango",
+    category: "Fruits",
+    shortDescription:
+      "Premium IQF mango cubes with tropical sweetness, golden color, and natural texture preserved through advanced freezing.",
+    fullDescription:
+      "Merv delivers premium IQF mango all year long, preserving its tropical sweetness, bright golden color, and natural texture through advanced freezing technology. Carefully selected mangoes are cut and individually quick frozen to keep their fresh taste and nutritional value. Perfect for juices, smoothies, desserts, fruit salads, hotels, restaurants, and food service use.",
+    image: "/assets/new image/تدت.png",
+    packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
+    types: ["Diced", "Chunks"],
+    nutrition: {
+      vitamins: [
+        { label: "Vitamin C", value: "60% DV" },
+        { label: "Vitamin A", value: "20% DV" },
+        { label: "Vitamin B6", value: "8% DV" }
+      ],
+      minerals: [
+        { label: "Copper", value: "10% DV" },
+        { label: "Potassium", value: "5% DV" },
+        { label: "Magnesium", value: "3% DV" }
+      ]
+    },
+    seasonalCalendar: [0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
+    storage: "Keep frozen below -18° C"
+  },
+
+  {
+    id: "pomegranate",
+    name: "Pomegranate",
+    category: "Fruits",
+    shortDescription:
+      "Sweet, juicy, and crunchy IQF pomegranate kernels available all year with clean premium quality.",
+    fullDescription:
+      "Merv provides premium IQF pomegranate kernels with a sweet, juicy, and crunchy texture. The product is carefully prepared and frozen to preserve its natural taste, color, and nutritional value. Perfect for desserts, salads, smoothies, juices, toppings, and food service applications.",
+    image: "/assets/new image/زععزعزع.png",
+    packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
+    types: ["Kernels"],
+    nutrition: {
+      vitamins: [
+        { label: "Vitamin K", value: "16% DV" },
+        { label: "Vitamin C", value: "12% DV" },
+        { label: "Vitamin B6", value: "4% DV" }
+      ],
+      minerals: [
+        { label: "Potassium", value: "5% DV" },
+        { label: "Copper", value: "5% DV" },
+        { label: "Manganese", value: "4% DV" }
+      ]
+    },
+    seasonalCalendar: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+    storage: "Keep frozen below -18° C"
+  },
+
   {
     id: "mixed-vegetables",
     name: "Mixed vegetables",
     category: "Vegetables",
-    shortDescription: "Because of our IQF technology, green beans, peas, and carrots are now delivered around the world with a better quality and taste than ever.",
-    fullDescription: "Because of our IQF technology, green beans, peas, and carrots are now delivered around the world with a better quality and taste than ever. Our mixed vegetables can do a lot more than just be a side dish, they can easily be the star of any meal. Mix things up and cook new and more creative recipes. With the right seasoning and cooking, you can create a burst of flavor that everyone will love.",
-    image: "/assets/products/mixed-vegetables.png",
+    shortDescription:
+      "A colorful IQF mix of premium vegetables preserved with fresh taste, natural color, and excellent quality.",
+    fullDescription:
+      "Merv mixed vegetables are carefully selected, cut, and individually quick frozen to preserve their fresh taste, natural color, and nutritional value. This mix usually includes peas, carrots, green beans, sweet corn, and other vegetables depending on the blend. It is ideal for side dishes, soups, rice, casseroles, restaurants, catering, and food service.",
+    image: "/assets/new image/jj.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
       vitamins: [
@@ -94,14 +129,18 @@ export const products: Product[] = [
     seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   },
+
   {
     id: "broccoli",
     name: "Broccoli",
     category: "Vegetables",
-    shortDescription: "Throughout our process we care about preserving the amount of nutrients of the product, its natural appearance, premium quality, and safety.",
-    fullDescription: "Throughout our process we care about preserving the amount of nutrients of the product, its natural appearance, premium quality, and safety, so that the broccoli can reach you in the best shape possible. Broccoli is low in calories but high in nutrients and antioxidants that are important different aspects of our bodies. Also, it can be one of the most delicious additions to any meal plan if cooked right.",
-    image: "/assets/products/broccoli.jpg",
+    shortDescription:
+      "Premium IQF broccoli florets preserved with natural green color, fresh texture, and high nutritional value.",
+    fullDescription:
+      "Merv IQF broccoli is carefully selected, cut into florets, and frozen quickly to preserve its natural appearance, texture, color, and nutritional value. Broccoli is low in calories and rich in vitamins, minerals, and antioxidants. It is ideal for healthy meals, soups, side dishes, restaurants, catering, and frozen food service.",
+    image: "/assets/new image/عزعزع.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
+    types: ["Florets"],
     nutrition: {
       vitamins: [
         { label: "Vitamin C", value: "135% DV" },
@@ -117,13 +156,16 @@ export const products: Product[] = [
     seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   },
+
   {
     id: "molokhia",
     name: "Molokhia",
     category: "Vegetables",
-    shortDescription: "Tastier and greener than ever, our frozen molokhia is farmed and manufactured to provide the rich oriental taste you love.",
-    fullDescription: "Tastier and greener than ever, our frozen molokhia is farmed and manufactured to provide the rich oriental taste you love. Not only is Molokhia the most delicious oriental food there is, but did you know that there are more than 30 vitamins, minerals, and minerals in molokhia, as well as certain organic compounds that are also important to human health?",
-    image: "/assets/products/molokhia.jpg",
+    shortDescription:
+      "Rich green frozen molokhia with authentic oriental taste, prepared and frozen to preserve freshness.",
+    fullDescription:
+      "Merv frozen molokhia is carefully selected, prepared, and frozen to preserve its rich green color, natural taste, and authentic oriental flavor. It is available in minced or leaves form depending on customer needs. Molokhia is known for its vitamins, minerals, and traditional value in many Middle Eastern meals.",
+    image: "/assets/new image/ججججج.png",
     packingTypes: ["400 grams"],
     types: ["Minced", "Leaves"],
     nutrition: {
@@ -141,13 +183,16 @@ export const products: Product[] = [
     seasonalCalendar: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
     storage: "Keep frozen below -18° C"
   },
+
   {
     id: "green-peas",
     name: "Green peas",
     category: "Vegetables",
-    shortDescription: "Picked and frozen with technologies that keep their sweetness and crispness, our frozen green peas are just the best out there.",
-    fullDescription: "Picked and frozen with technologies that keep their sweetness and crispness, our frozen green peas are just the best out there. No matter what season it is, we’ve made it possible for everyone to enjoy high quality green peas and be able to always incorporate greens into their meals.",
-    image: "/assets/products/green-peas.jpg",
+    shortDescription:
+      "Sweet and tender IQF green peas frozen at peak freshness to preserve their taste and bright green color.",
+    fullDescription:
+      "Merv IQF green peas are picked and frozen using advanced freezing technology to keep their natural sweetness, crispness, and bright green color. They are perfect for soups, rice, side dishes, salads, catering, restaurants, and food service use.",
+    image: "/assets/new image/عل.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
       vitamins: [
@@ -164,13 +209,16 @@ export const products: Product[] = [
     seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
     storage: "Keep frozen below -18° C"
   },
+
   {
     id: "spinach",
     name: "Spinach",
     category: "Vegetables",
-    shortDescription: "Thanks to our high standard IQF process, our frozen spinach is especially high in Vitamin K, C and B2 that helps with cell growth and function.",
-    fullDescription: "Thanks to our high standard IQF process, our frozen spinach is especially high in Vitamin K, C and B2 that helps with cell growth and function. It’s always possible to go creative and enjoy endless possibilities when you’re cooking Frosty Foods’ IQF spinach.",
-    image: "/assets/products/spinach.jpg",
+    shortDescription:
+      "Premium IQF spinach preserved with deep green color, fresh taste, and excellent nutritional value.",
+    fullDescription:
+      "Merv frozen spinach is carefully prepared and individually quick frozen to preserve its deep green color, natural taste, and nutritional value. Spinach is rich in vitamin K, vitamin A, vitamin C, iron, and minerals. It is suitable for pies, soups, sauces, side dishes, restaurants, and food service.",
+    image: "/assets/new image/000000.png",
     packingTypes: ["400 grams"],
     types: ["Chopped", "Leaves"],
     nutrition: {
@@ -188,15 +236,18 @@ export const products: Product[] = [
     seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
     storage: "Keep frozen below -18° C"
   },
+
   {
     id: "okra",
     name: "Okra",
     category: "Vegetables",
-    shortDescription: "Enjoy the warm feeling, the same taste and flavor of okra anytime of the year with our top quality IQF Okra.",
-    fullDescription: "Enjoy the warm feeling, the same taste and flavor of okra anytime of the year with our top quality IQF Okra. Besides its mouthwatering taste, okra is also rich in vitamins A and C, as well as antioxidants that help reduce the risk of serious health conditions.",
-    image: "/assets/products/okra.jpg",
+    shortDescription:
+      "Top quality IQF okra preserved with its natural shape, green color, and authentic taste.",
+    fullDescription:
+      "Merv IQF okra is carefully selected, graded, and frozen to preserve its natural shape, fresh green color, and authentic taste. Okra is rich in vitamins A and C and contains antioxidants. It is perfect for traditional dishes, soups, stews, restaurants, catering, and food service.",
+    image: "/assets/new image/دبس.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
-    types: ["Extra(0:2.5)", "One(3.5:4.5)", "Zero(2.5:3.5)", "Two(4.5:5.5)"],
+    types: ["Extra 0:2.5", "Zero 2.5:3.5", "One 3.5:4.5", "Two 4.5:5.5"],
     nutrition: {
       vitamins: [
         { label: "Vitamin C", value: "26% DV" },
@@ -212,13 +263,16 @@ export const products: Product[] = [
     seasonalCalendar: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
     storage: "Keep frozen below -18° C"
   },
+
   {
     id: "colocasia",
     name: "Colocasia",
     category: "Vegetables",
-    shortDescription: "Cleanly prepared, cut and froze for the taste our customers deserve. Colocasia is known for its benefits for higher amounts of energy.",
-    fullDescription: "Cleanly prepared, cut and froze for the taste our customers deserve. Colocasia is known for its benefits for higher amounts of energy, promoting weight loss, lowering blood pressure, improving muscular health and more. Many countries enjoy traditional dishes prepared with colocasia leaves.",
-    image: "/assets/products/colocasia.jpg",
+    shortDescription:
+      "Cleanly prepared diced colocasia, frozen to preserve its traditional taste and reliable quality.",
+    fullDescription:
+      "Merv IQF colocasia is cleanly prepared, peeled, diced, and frozen to preserve its taste, texture, and quality. Colocasia is widely used in traditional dishes and is valued for its energy content and rich texture. It is suitable for retail, restaurants, catering, and export markets.",
+    image: "/assets/new image/سد.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Diced"],
     nutrition: {
@@ -236,62 +290,18 @@ export const products: Product[] = [
     seasonalCalendar: [1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   },
-  {
-    id: "cut-green-beans",
-    name: "Cut green beans",
-    category: "Vegetables",
-    shortDescription: "Get your cut green beans with incomparable quality and ready to be steamed and perfectly cooked in minutes.",
-    fullDescription: "Get your cut green beans with incomparable quality and ready to be steamed and perfectly cooked in minutes. Nothing compares to the delicious bite of cooked green beans that has a crunch to it. Complete your meal with nutritional benefits as well as great taste with Frosty Foods.",
-    image: "/assets/products/cut-green-beans.jpg",
-    packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
-    types: ["Cut", "Whole"],
-    nutrition: {
-      vitamins: [
-        { label: "Vitamin K", value: "18% DV" },
-        { label: "Vitamin C", value: "10% DV" },
-        { label: "Vitamin A", value: "8% DV" }
-      ],
-      minerals: [
-        { label: "Manganese", value: "7% DV" },
-        { label: "Potassium", value: "4% DV" },
-        { label: "Iron", value: "3% DV" }
-      ]
-    },
-    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    storage: "Keep frozen below -18° C"
-  },
-  {
-    id: "broad-beans",
-    name: "Broad beans",
-    category: "Vegetables",
-    shortDescription: "Whether you like your beans stir-fried, as a cold dressing, and or in other various options, you can always count on Frosty Foods’ broad beans.",
-    fullDescription: "Whether you like your beans stir-fried, as a cold dressing, and or in other various options, you can always count on Frosty Foods’ broad beans for the best side dishes. Broad beans are popular all around the world and are considered an ingredient used in a variety of dishes. They are particularly popular in vegan and vegetarian dishes as the bean is a great source of protein, vitamins, fibre, antioxidants, and folate and with their low number of calories.",
-    image: "/assets/products/broad-beans.png",
-    packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
-    types: ["Single peeled", "Double peeled"],
-    nutrition: {
-      vitamins: [
-        { label: "Folate (B9)", value: "40% DV" },
-        { label: "Vitamin K", value: "10% DV" },
-        { label: "Vitamin C", value: "4% DV" }
-      ],
-      minerals: [
-        { label: "Manganese", value: "25% DV" },
-        { label: "Copper", value: "20% DV" },
-        { label: "Iron", value: "14% DV" }
-      ]
-    },
-    seasonalCalendar: [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-    storage: "Keep frozen below -18° C"
-  },
+
   {
     id: "cauliflower",
     name: "Cauliflower",
     category: "Vegetables",
-    shortDescription: "Combine all the traits you love about fresh cauliflower including fresh flavour, color, nutrients and vitamins.",
-    fullDescription: "Combine all the traits you love about fresh cauliflower including fresh flavour, color, nutrients and vitamins, with the convenience and longer shelf life of frozen products and get that with Frosty Foods’ IQF Cauliflower.",
+    shortDescription:
+      "Premium IQF cauliflower florets with fresh flavor, natural color, and preserved nutrients.",
+    fullDescription:
+      "Merv IQF cauliflower combines the fresh flavor, natural color, and nutritional value of fresh cauliflower with the convenience and long shelf life of frozen products. Carefully selected florets are frozen quickly to preserve quality and texture for home cooking, restaurants, catering, and food service.",
     image: "/assets/products/cauliflower.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
+    types: ["Florets"],
     nutrition: {
       vitamins: [
         { label: "Vitamin C", value: "77% DV" },
@@ -307,28 +317,31 @@ export const products: Product[] = [
     seasonalCalendar: [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   },
+
   {
-    id: "pomegranate",
-    name: "Pomegranate",
-    category: "Fruits",
-    shortDescription: "Sweet and crunchy yet juicy, our IQF pomegranate provides you with a nutritious and delicious treat all year long.",
-    fullDescription: "Sweet and crunchy yet juicy, our IQF pomegranate provides you with a nutritious and delicious treat all year long. Frosty Foods provides easy, clean and tasty IQF pomegranate for everyone to always enjoy.",
-    image: "/assets/products/pomegranate.jpg",
-    packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
-    types: ["Kernels"],
+    id: "french-fries",
+    name: "French Fries",
+    category: "Vegetables",
+    shortDescription:
+      "Golden frozen French fries prepared from selected potatoes for crispy texture and delicious taste.",
+    fullDescription:
+      "Merv frozen French fries are carefully prepared from selected potatoes and frozen to preserve their golden color, consistent cut, and delicious potato taste. They are ideal for restaurants, hotels, catering, quick service, and home cooking. With the right preparation, they deliver a crispy outside and soft inside with reliable quality all year long.",
+    image: "/assets/new image/ضضضضضض.png",
+    packingTypes: ["1 kilo", "2.5 kilos", "10 kilos"],
+    types: ["Straight Cut", "Shoestring", "Crinkle Cut"],
     nutrition: {
       vitamins: [
-        { label: "Vitamin K", value: "16% DV" },
-        { label: "Vitamin C", value: "12% DV" },
-        { label: "Vitamin B6", value: "4% DV" }
+        { label: "Vitamin C", value: "15% DV" },
+        { label: "Vitamin B6", value: "12% DV" },
+        { label: "Vitamin K", value: "4% DV" }
       ],
       minerals: [
-        { label: "Potassium", value: "5% DV" },
-        { label: "Copper", value: "5% DV" },
-        { label: "Manganese", value: "4% DV" }
+        { label: "Potassium", value: "10% DV" },
+        { label: "Iron", value: "4% DV" },
+        { label: "Magnesium", value: "5% DV" }
       ]
     },
-    seasonalCalendar: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+    seasonalCalendar: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     storage: "Keep frozen below -18° C"
   }
 ];

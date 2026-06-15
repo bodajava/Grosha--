@@ -3,8 +3,8 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Navbar } from "@/components/amr/Navbar";
-import { Footer } from "@/components/amr/Footer";
+import { Navbar } from "@/components/merv/Navbar";
+import { Footer } from "@/components/merv/Footer";
 import { Thermometer, Microscope, Cpu, CheckCircle2, ShieldCheck, Award } from "lucide-react";
 
 const workflowSteps = [
@@ -18,7 +18,7 @@ const qualityValues = [
   {
     icon: <Thermometer className="w-8 h-8" />,
     title: "IQF TECHNOLOGY",
-    description: "Amr Froizz products use Individually Quick Frozen systems. This prevents large ice crystals from damaging fibers, locking in flavor at -40°C in minutes.",
+    description: "Merv products use Individually Quick Frozen systems. This prevents large ice crystals from damaging fibers, locking in flavor at -40°C in minutes.",
     bullets: ["Zero moisture loss", "Individual piece separation", "Nutrient lock-in system"],
     color: "var(--coral)"
   },
@@ -70,7 +70,7 @@ export default function QualityPage() {
     <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
       {/* Editorial side-rails */}
       <div className="side-rail right">
-        <span className="rail-text">GROSHA — Vol. 01 · Issue Nº 01 · Quality Standards</span>
+        <span className="rail-text">Merv — Vol. 01 · Issue Nº 01 · Quality Standards</span>
       </div>
       <div className="side-rail left">
         <span className="rail-text">HACCP · ISO 9001 · IQF · Egyptian Origin</span>
@@ -87,7 +87,7 @@ export default function QualityPage() {
               <span className="meta-grp">
                 <span>Quality / Scientific Standards</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>001 / 004</span>
             </div>
@@ -123,7 +123,7 @@ export default function QualityPage() {
               <span className="meta-grp">
                 <span>Systematic Excellence / Process Workflow</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>002 / 004</span>
             </div>
@@ -159,7 +159,7 @@ export default function QualityPage() {
               <span className="meta-grp">
                 <span>Main Pillars / Safety Certifications</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>003 / 004</span>
             </div>
@@ -198,7 +198,7 @@ export default function QualityPage() {
               <span className="meta-grp" style={{ color: "var(--paper)" }}>
                 <span>Connect / Enterprise Quality Assurance</span>
                 <span className="dot-mark" style={{ color: "var(--paper)" }}>•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span style={{ color: "var(--paper)" }}>004 / 004</span>
             </div>

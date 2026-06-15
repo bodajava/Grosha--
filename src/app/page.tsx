@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/amr/Navbar";
-import { Footer } from "@/components/amr/Footer";
+import { Navbar } from "@/components/merv/Navbar";
+import { Footer } from "@/components/merv/Footer";
 import { products } from "@/lib/data";
 
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
     <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
       {/* Editorial side-rails */}
       <div className="side-rail right">
-        <span className="rail-text">GROSHA — Vol. 01 · Issue Nº 01 · Premium Export</span>
+        <span className="rail-text">Merv — Vol. 01 · Issue Nº 01 · Premium Export</span>
       </div>
       <div className="side-rail left">
         <span className="rail-text">IQF · Cold Chain · Egypt · Global · 40+ Ports</span>
@@ -66,7 +66,7 @@ export default function Home() {
               <span className="meta-grp">
                 <span>Hero / Export Plate</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>001 / 008</span>
             </div>
@@ -74,8 +74,12 @@ export default function Home() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <span className="label" data-reveal>Premium IQF Exports from Egypt <span className="ix">· Nº 01</span></span>
-              <h1 className="display" data-reveal>Artisan IQF <em>Exports</em> Pristine <em>Harvest</em><span className="dot">.</span></h1>
-              <p className="lead" data-reveal>Preserving nature's finest flavours through innovative cold-chain technology. From harvest to doorstep in its most vital state.</p>
+              <h1 className="display" data-reveal>
+                Premium IQF<br />
+                Frozen <em>fruits &</em><br />
+                <em>vegetables</em><span className="dot">.</span>
+              </h1>
+              <p className="lead" data-reveal>Preserving nature's finest flavours through advanced IQF freezing technology. From farm to the world.</p>
               <div className="hero-actions" data-reveal>
                 <a className="btn btn-primary" href="#products">
                   Explore our catalog
@@ -86,31 +90,37 @@ export default function Home() {
                 <a className="btn btn-ghost" href="#contact">
                   Get a quote
                   <span className="arrow">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9 12h6M12 9v6" /></svg>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 8l4 4-4 4M8 12h8" /></svg>
                   </span>
                 </a>
               </div>
               <div className="hero-stats" data-reveal>
                 <div className="stat">
                   <span className="ring solid">40+</span>
-                  <span className="stat-label"><b>ports</b>global reach</span>
+                  <span className="stat-label"><b>Products</b>Varieties</span>
                 </div>
                 <div className="stat">
                   <span className="ring">15+</span>
-                  <span className="stat-label"><b>hubs</b>worldwide</span>
+                  <span className="stat-label"><b>Countries</b>Served</span>
                 </div>
                 <div className="stat">
                   <span className="ring coral">03</span>
-                  <span className="stat-label"><b>continents</b>delivering</span>
+                  <span className="stat-label"><b>Continents</b>Delivering</span>
                 </div>
               </div>
               <div className="hero-foot" data-reveal>
-                <span className="meta">↳ &nbsp; 30° 00′ N · 31° 12′ E &nbsp; · &nbsp; Giza, Egypt</span>
-                <span className="coord">IQF · -40°C · Locked Fresh</span>
+                <span className="meta">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px', position: 'relative', top: '-1px' }}>
+                    <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  30° 00′ N · 31° 12′ E &nbsp;·&nbsp; Giza, Egypt
+                </span>
+                <span className="coord">IQF · -18°C · Locked Fresh</span>
               </div>
             </div>
             <div className="hero-art" data-reveal="scale">
-              <img src="/assets/mpoafiw1-ChatGPT-Image-May-27_-2026-at-07_37_16-PM.png" alt="GROSHA — Premium IQF Frozen Exports" />
+              <img src="/assets/new image/hero_mockup.png" alt="Merv — Premium IQF Frozen Exports" />
             </div>
           </div>
         </section>
@@ -181,7 +191,7 @@ export default function Home() {
               <span className="meta-grp">
                 <span>About / Company Profile</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>002 / 008</span>
             </div>
@@ -189,7 +199,7 @@ export default function Home() {
               <div className="about-copy" data-reveal>
                 <span className="label">About the company <span className="ix">· Nº 02</span></span>
                 <h2 className="display">Crafting <em>freshness</em> beyond <em>boundaries</em> from Egypt to the world<span className="dot">.</span></h2>
-                <p className="lead">GROSHA is a premium exporter of IQF frozen fruits and vegetables rooted in Giza, Egypt. We partner with 50+ regional farms, applying <code className="code-inline">Cryo-Fresh</code> technology and rigorous global standards to deliver produce that tastes as vital as the moment it was picked.</p>
+                <p className="lead">Merv is a premium exporter of IQF frozen fruits and vegetables rooted in Giza, Egypt. We partner with 50+ regional farms, applying <code className="code-inline">Cryo-Fresh</code> technology and rigorous global standards to deliver produce that tastes as vital as the moment it was picked.</p>
                 <div style={{ display: "grid", gridTemplateColumns: "1.0fr 1.0fr", gap: "16px", marginBottom: "28px" }}>
                   <div style={{ padding: "16px", background: "var(--bone)", borderRadius: "12px" }}>
                     <span style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "20px", color: "var(--coral)", display: "block", marginBottom: "4px" }}>01</span>
@@ -233,7 +243,7 @@ export default function Home() {
                 </div>
                 <div className="about-caption">
                   <b>Partnering with 50+ regional farms across Egypt.</b>
-                  (GROSHA, MMXXVI)
+                  (Merv, MMXXVI)
                 </div>
               </div>
             </div>
@@ -256,13 +266,13 @@ export default function Home() {
               <div className="capabilities-art" data-reveal="left">
                 <span className="corner tl"></span>
                 <span className="corner br"></span>
-                <img src="https://images.unsplash.com/photo-1518635017498-87f514b751ba?w=800&q=80" alt="IQF frozen berries" />
-                <div className="ribbon"><b>GROSHA</b> &nbsp;·&nbsp; PRODUCT CATALOGUE &nbsp;·&nbsp; AF/26</div>
+                <img src="/assets/new image/fruits_catalogue.png" alt="IQF frozen berries" />
+                <div className="ribbon"><b>Merv</b> &nbsp;·&nbsp; PRODUCT CATALOGUE &nbsp;·&nbsp; AF/26</div>
               </div>
               <div className="capabilities-copy" data-reveal>
                 <span className="label">Product categories <span className="ix">· Nº 03</span></span>
                 <h2 className="display">Artisan <em>frozen</em> excellence from <em>Egypt's</em> finest fields<span className="dot">.</span></h2>
-                <p className="lead">Every GROSHA product is field-fresh within hours, IQF-blasted at -40°C, and packed under strict HACCP and ISO 9001 protocols.</p>
+                <p className="lead">Every Merv product is field-fresh within hours, IQF-blasted at -40°C, and packed under strict HACCP and ISO 9001 protocols.</p>
                 <div className="cards">
                   <div className="card" data-reveal>
                     <div className="num">01<span className="tag">Fruits</span></div>
@@ -558,7 +568,7 @@ export default function Home() {
               <div data-reveal>
                 <span className="label">Get in touch <span className="ix">· Nº 06</span></span>
                 <h2 className="display">Ready to <em>elevate</em> your <em>supplies</em><span className="dot">?</span></h2>
-                <p className="lead">GROSHA partners with retailers and distributors worldwide to deliver superior frozen goods. Reach out for pricing, samples, and partnerships.</p>
+                <p className="lead">Merv partners with retailers and distributors worldwide to deliver superior frozen goods. Reach out for pricing, samples, and partnerships.</p>
                 <div style={{ marginBottom: "28px" }}>
                   <div style={{ fontFamily: "var(--sans)", fontSize: "13px", color: "var(--ink-soft)", marginBottom: "8px" }}>
                     <span style={{ color: "var(--ink-faint)", letterSpacing: "0.18em", textTransform: "uppercase", fontSize: "10.5px" }}>Headquarters</span><br />
@@ -590,9 +600,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="cta-art" data-reveal="right">
-                <img src="/assets/cta_export_hero.png" alt="Global export shipping" />
+                <img src="/assets/new image/export_shipping.png" alt="Global export shipping" />
                 <div className="index">Nº 08</div>
-                <div className="ribbon">GROSHA &nbsp;·&nbsp; EXPORT</div>
+                <div className="ribbon">Merv &nbsp;·&nbsp; EXPORT</div>
               </div>
             </div>
           </div>

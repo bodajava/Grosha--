@@ -3,18 +3,18 @@
 import React, { use, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Navbar } from "@/components/amr/Navbar";
-import { Footer } from "@/components/amr/Footer";
+import { Navbar } from "@/components/merv/Navbar";
+import { Footer } from "@/components/merv/Footer";
 import { products } from "@/lib/data";
 import { ArrowLeft, Thermometer, ShieldCheck, Zap, Leaf, ChevronRight } from "lucide-react";
-import { NutritionalValues } from "@/components/amr/NutritionalValues";
-import { SeasonalCalendar } from "@/components/amr/SeasonalCalendar";
+import { NutritionalValues } from "@/components/merv/NutritionalValues";
+import { SeasonalCalendar } from "@/components/merv/SeasonalCalendar";
 
 const benefits = [
-  { icon: <Zap className="w-5 h-5" />,        title: "Nutrient Lock",      desc: "Cryogenic freezing at -40°C prevents cellular degradation." },
-  { icon: <Thermometer className="w-5 h-5" />, title: "Thermal Integrity",  desc: "Maintains peak freshness from harvest to industrial kitchen." },
-  { icon: <ShieldCheck className="w-5 h-5" />, title: "Bio-Safety",         desc: "No additives. No preservatives. Pure agricultural quality." },
-  { icon: <Leaf className="w-5 h-5" />,        title: "Eco-Harvest",        desc: "Sustainably sourced from Egypt's richest agricultural zones." },
+  { icon: <Zap className="w-5 h-5" />, title: "Nutrient Lock", desc: "Cryogenic freezing at -40°C prevents cellular degradation." },
+  { icon: <Thermometer className="w-5 h-5" />, title: "Thermal Integrity", desc: "Maintains peak freshness from harvest to industrial kitchen." },
+  { icon: <ShieldCheck className="w-5 h-5" />, title: "Bio-Safety", desc: "No additives. No preservatives. Pure agricultural quality." },
+  { icon: <Leaf className="w-5 h-5" />, title: "Eco-Harvest", desc: "Sustainably sourced from Egypt's richest agricultural zones." },
 ];
 
 export default function ProductDetailsPage({ params }: { params: Promise<{ id: string }> }) {
@@ -50,20 +50,20 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
     return (
       <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
         <h1 className="display" style={{ fontSize: "28px", marginBottom: "24px" }}>Product not found</h1>
-        <Link href="/products" className="btn btn-ghost" style={{ border: "1px solid var(--line-soft)" }}>Back to Catalog</Link>
+        <Link href="/#products" className="btn btn-ghost" style={{ border: "1px solid var(--line-soft)" }}>Back to Catalog</Link>
       </div>
     );
   }
 
   const titleParts = product.name.split(" ");
-  const firstPart  = titleParts[0];
+  const firstPart = titleParts[0];
   const otherParts = titleParts.slice(1).join(" ");
 
   return (
     <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
       {/* Side rails – desktop only */}
       <div className="side-rail right">
-        <span className="rail-text">GROSHA — Product Specification · {product.name}</span>
+        <span className="rail-text">Merv — Product Specification · {product.name}</span>
       </div>
       <div className="side-rail left">
         <span className="rail-text">IQF Origin / Certified Export / Delta Agriculture</span>
@@ -115,15 +115,6 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
                   </div>
                 </div>
 
-                {/* Thumbnails */}
-                <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} style={{ width: "80px", height: "80px", borderRadius: "50%", border: "2px solid var(--line-soft)", overflow: "hidden", cursor: "pointer", flexShrink: 0 }}
-                      className="hover:scale-110 grayscale hover:grayscale-0 transition-all">
-                      <Image src={product.image} alt="thumb" width={80} height={80} className="object-cover w-full h-full" />
-                    </div>
-                  ))}
-                </div>
 
                 {/* Technical Specs card */}
                 <div className="pd-card" data-reveal>
@@ -171,7 +162,7 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
 
                 {/* Title header */}
                 <header style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-                  <Link href="/products" style={{ display: "inline-flex", alignItems: "center", gap: "10px", fontSize: "10px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.3em", color: "#9a5035", textDecoration: "none" }}
+                  <Link href="/#products" style={{ display: "inline-flex", alignItems: "center", gap: "10px", fontSize: "10px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.3em", color: "#9a5035", textDecoration: "none" }}
                     className="hover:gap-5 transition-all">
                     <ArrowLeft className="w-4 h-4" /> Return to catalog
                   </Link>
@@ -208,12 +199,12 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
                   ))}
                 </div>
 
-                {/* Grosha brand flat-lay image */}
+                {/* Merv brand flat-lay image */}
                 <div className="pd-brand-img" data-reveal>
-                  <Image src="/assets/cta_export_hero.png" alt="Grosha export products" fill className="object-cover" />
+                  <Image src="/assets/new image/export_shipping.png" alt="Merv export products" fill className="object-cover" />
                   <div className="pd-brand-img-caption">
                     <span style={{ color: "white", fontSize: "10px", fontWeight: 900, letterSpacing: "0.25em", textTransform: "uppercase" }}>
-                      Grosha · Premium Export Range
+                      Merv · Premium Export Range
                     </span>
                   </div>
                 </div>

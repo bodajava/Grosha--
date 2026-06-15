@@ -2,8 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { Navbar } from "@/components/amr/Navbar";
-import { Footer } from "@/components/amr/Footer";
+import { Navbar } from "@/components/merv/Navbar";
+import { Footer } from "@/components/merv/Footer";
 
 export default function NotFound() {
   const router = useRouter();

@@ -3,8 +3,8 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Navbar } from "@/components/amr/Navbar";
-import { Footer } from "@/components/amr/Footer";
+import { Navbar } from "@/components/merv/Navbar";
+import { Footer } from "@/components/merv/Footer";
 import { Globe2, Package, Database, MapPin, ShieldCheck, Thermometer, Anchor, Truck } from "lucide-react";
 
 const hubs = [
@@ -66,7 +66,7 @@ export default function LogisticsPage() {
     <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
       {/* Editorial side-rails */}
       <div className="side-rail right">
-        <span className="rail-text">GROSHA — Vol. 01 · Issue Nº 01 · Logistics Network</span>
+        <span className="rail-text">Merv — Vol. 01 · Issue Nº 01 · Logistics Network</span>
       </div>
       <div className="side-rail left">
         <span className="rail-text">Cold Storage · Port Export · Unbroken Cold Chain</span>
@@ -83,7 +83,7 @@ export default function LogisticsPage() {
               <span className="meta-grp">
                 <span>Logistics / Global Infrastructure</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>001 / 004</span>
             </div>
@@ -141,7 +141,7 @@ export default function LogisticsPage() {
               <span className="meta-grp">
                 <span>Solutions / Smart Cold Chain</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>002 / 004</span>
             </div>
@@ -185,7 +185,7 @@ export default function LogisticsPage() {
               <span className="meta-grp">
                 <span>Distribution / Regional Hubs</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>003 / 004</span>
             </div>
@@ -212,7 +212,7 @@ export default function LogisticsPage() {
                 <img src="/assets/frouts/Production.png" alt="Distribution Facility Production" />
                 <div className="about-caption">
                   <b>Real-time dispatch and loading facilities.</b>
-                  (GROSHA, MMXXVI)
+                  (Merv, MMXXVI)
                 </div>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function LogisticsPage() {
               <span className="meta-grp" style={{ color: "var(--paper)" }}>
                 <span>Expand / Logistics Feasibility Study</span>
                 <span className="dot-mark" style={{ color: "var(--paper)" }}>•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span style={{ color: "var(--paper)" }}>004 / 004</span>
             </div>

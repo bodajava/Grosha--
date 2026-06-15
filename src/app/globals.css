@@ -40,7 +40,7 @@
 }
 
 :root {
-  /* GROSHA Design System Variables */
+  /* Merv Design System Variables */
   --serif: var(--font-playfair), serif;
   --sans: var(--font-inter-tight), var(--font-inter), sans-serif;
   --body: var(--font-inter), sans-serif;
@@ -128,7 +128,7 @@
   }
 }
 
-/* GROSHA Template CSS classes */
+/* Merv Template CSS classes */
 
 .shell {
   width: 100%;
@@ -273,22 +273,7 @@
   text-decoration: none;
 }
 
-.brand-mark {
-  width: 32px;
-  height: 32px;
-  background: var(--coral);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
 
-.brand-mark img {
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
-}
 
 .brand-meta {
   font-family: var(--sans);
@@ -417,15 +402,27 @@
   left: 50%;
   transform: translateX(-50%);
   transform-origin: center;
-  transition: none; /* GSAP handles animation */
+  transition: none;
+  /* GSAP handles animation */
 }
 
-.burger-line:nth-child(1) { top: calc(50% - 5px); }
-.burger-line:nth-child(2) { top: 50%; margin-top: -0.75px; }
-.burger-line:nth-child(3) { top: calc(50% + 5px); }
+.burger-line:nth-child(1) {
+  top: calc(50% - 5px);
+}
+
+.burger-line:nth-child(2) {
+  top: 50%;
+  margin-top: -0.75px;
+}
+
+.burger-line:nth-child(3) {
+  top: calc(50% + 5px);
+}
 
 @media (max-width: 768px) {
-  .mob-burger { display: flex; }
+  .mob-burger {
+    display: flex;
+  }
 }
 
 /* Sections */
@@ -573,10 +570,11 @@ section {
 /* Hero Section */
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 80px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
 .hero-stats {
@@ -650,26 +648,41 @@ section {
 
 .hero-art {
   position: relative;
-  aspect-ratio: 1 / 1;
-  background: var(--paper-warm);
-  border-radius: 20px;
+  flex: 1.2;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  border-radius: 24px;
+  background: var(--bone);
+  border: 1px solid rgba(21, 20, 15, 0.08);
+  box-shadow: 0 30px 60px -25px rgba(21, 20, 15, 0.1);
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-art:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 45px 90px -30px rgba(21, 20, 15, 0.16);
 }
 
 .hero-art img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 16px;
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-art:hover img {
+  transform: scale(1.02);
 }
 
 /* Hide hero image on mobile — text is enough */
 @media (max-width: 768px) {
   .hero-art {
     display: none;
-  }
-  .hero-grid {
-    grid-template-columns: 1fr !important;
   }
 }
 
@@ -2136,7 +2149,11 @@ footer {
     padding: 0 24px;
   }
 
-  .hero-grid,
+  .hero-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+
   .about-grid,
   .capabilities-grid,
   .cta-grid {
@@ -2325,8 +2342,10 @@ footer {
 
 .pd-brand-img-caption {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(21,20,15,0.65) 0%, transparent 100%);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(21, 20, 15, 0.65) 0%, transparent 100%);
   padding: 24px 28px;
 }
 
@@ -2365,5 +2384,83 @@ footer {
 
   .pd-brand-img {
     border-radius: 1.5rem;
+  }
+}
+
+/* ─── Large Screen Scaling (1600px+) ────────────────────────────────── */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1680px;
+    padding: 0 100px;
+  }
+
+  .display {
+    font-size: clamp(68px, 4.5vw, 100px) !important;
+  }
+
+  .lead {
+    font-size: 20px;
+    max-width: 680px;
+    margin-top: 32px;
+    margin-bottom: 40px;
+  }
+
+  .hero-grid {
+    gap: 100px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 18px 40px;
+  }
+
+  .hero-stats {
+    margin-top: 50px;
+    padding: 32px 0;
+    gap: 60px;
+  }
+
+  .stat .ring {
+    width: 58px;
+    height: 58px;
+    font-size: 18px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .hero-foot {
+    font-size: 11.5px;
+    margin-top: 36px;
+  }
+
+  .hero-art img {
+    max-height: 650px;
+  }
+
+  .nav {
+    padding: 24px 0;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .brand-meta {
+    font-size: 10px;
+  }
+
+  .nav-links {
+    gap: 50px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .nav-cta {
+    font-size: 12px;
+    padding: 12px 28px;
   }
 }

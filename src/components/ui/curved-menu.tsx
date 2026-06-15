@@ -64,7 +64,7 @@ const defaultNavItems: iNavItem[] = [
 	},
 	{
 		heading: "Products",
-		href: "/products",
+		href: "/#products",
 		subheading: "The IQF collection",
 	},
 	{
@@ -99,7 +99,7 @@ const CustomFooter: React.FC = () => {
 			<a href="#" className="hover:text-secondary hover:scale-110 transition-all">
 				<IconGithub size={20} />
 			</a>
-            <p className="hidden md:block font-black text-[10px] uppercase tracking-widest text-primary/40">AMR FROIZZ © 2026</p>
+            <p className="hidden md:block font-black text-[10px] uppercase tracking-widest text-primary/40">Merv © 2026</p>
 		</div>
 	);
 };

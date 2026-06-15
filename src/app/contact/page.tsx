@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Navbar } from "@/components/amr/Navbar";
-import { Footer } from "@/components/amr/Footer";
+import { Navbar } from "@/components/merv/Navbar";
+import { Footer } from "@/components/merv/Footer";
 import { Mail, Phone, MapPin, Loader2, CheckCircle2 } from "lucide-react";
 
 export default function ContactPage() {
@@ -69,7 +69,7 @@ export default function ContactPage() {
     <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
       {/* Editorial side-rails */}
       <div className="side-rail right">
-        <span className="rail-text">GROSHA — Vol. 01 · Issue Nº 01 · Contact</span>
+        <span className="rail-text">Merv — Vol. 01 · Issue Nº 01 · Contact</span>
       </div>
       <div className="side-rail left">
         <span className="rail-text">Inquiries · Bulk Orders · Customer Relations</span>
@@ -86,7 +86,7 @@ export default function ContactPage() {
               <span className="meta-grp">
                 <span>Contact / Global Inquiries</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>001 / 002</span>
             </div>
@@ -102,7 +102,7 @@ export default function ContactPage() {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
                   {[
-                    { icon: <MapPin size={24} />, title: "Global Headquarters", detail: "AMR Building, Giza, Egypt", color: "var(--coral)" },
+                    { icon: <MapPin size={24} />, title: "Global Headquarters", detail: "Merv Building, Giza, Egypt", color: "var(--coral)" },
                     { icon: <Phone size={24} />, title: "Direct Inquiry", detail: "+201009778868", color: "var(--olive)" },
                     { icon: <Mail size={24} />, title: "Digital Mailbox", detail: "sales@goldengrainglobal.com", isEmail: true, color: "var(--mustard)" }
                   ].map((item, i) => (

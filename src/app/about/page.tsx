@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Navbar } from "@/components/amr/Navbar";
-import { Footer } from "@/components/amr/Footer";
+import { Navbar } from "@/components/merv/Navbar";
+import { Footer } from "@/components/merv/Footer";
 import { Leaf, Zap, Globe, Thermometer } from "lucide-react";
 
 export default function AboutPage() {
@@ -39,7 +39,7 @@ export default function AboutPage() {
     <div style={{ background: "var(--paper)", color: "var(--ink)", minHeight: "100vh" }}>
       {/* Editorial side-rails */}
       <div className="side-rail right">
-        <span className="rail-text">GROSHA — Vol. 01 · Issue Nº 01 · About Us</span>
+        <span className="rail-text">Merv — Vol. 01 · Issue Nº 01 · About Us</span>
       </div>
       <div className="side-rail left">
         <span className="rail-text">IQF · Cold Chain · Egypt · Global · 40+ Ports</span>
@@ -56,7 +56,7 @@ export default function AboutPage() {
               <span className="meta-grp">
                 <span>About / Our Ethos</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>001 / 005</span>
             </div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
               <div className="hero-copy">
                 <span className="label" data-reveal>Our Culinary Ethos <span className="ix">· Nº 01</span></span>
                 <h1 className="display" data-reveal>Crafting <em>Freshness</em> Beyond <em>Boundaries</em><span className="dot">.</span></h1>
-                <p className="lead" data-reveal>Discover the story of GROSHA, where artisanal dedication meets modern preservation to bring the world's finest harvests to your kitchen.</p>
+                <p className="lead" data-reveal>Discover the story of Merv, where artisanal dedication meets modern preservation to bring the world's finest harvests to your kitchen.</p>
                 
                 <div className="hero-foot" data-reveal style={{ marginTop: "40px" }}>
                   <span className="meta">↳ &nbsp; 30° 00′ N · 31° 12′ E &nbsp; · &nbsp; Giza, Egypt</span>
@@ -86,7 +86,7 @@ export default function AboutPage() {
               <span className="meta-grp">
                 <span>Foundational Pillars / Innovation</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>002 / 005</span>
             </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
               <span className="meta-grp">
                 <span>Harvest / Agriculture</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>003 / 005</span>
             </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
                 <img src="/assets/real_Image/cancer_risk_reduction.jpg" alt="Sustainable Farm Harvesting" />
                 <div className="about-caption">
                   <b>Freshness locked within 4 hours of farm picking.</b>
-                  (GROSHA, MMXXVI)
+                  (Merv, MMXXVI)
                 </div>
               </div>
             </div>
@@ -183,7 +183,7 @@ export default function AboutPage() {
               <span className="meta-grp">
                 <span>Logistics / Climate Control</span>
                 <span className="dot-mark">•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span>004 / 005</span>
             </div>
@@ -206,10 +206,10 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="about-art" data-reveal="left" style={{ direction: "ltr" }}>
-                <img src="/assets/real_Image/Global Package Shipping Services from the USA.jpg" alt="Logistics Shipping Container" />
+                <img src="/assets/real_Image/global_shipping.jpg" alt="Logistics Shipping Container" />
                 <div className="about-caption">
                   <b>Climate-controlled cold storage systems.</b>
-                  (GROSHA, MMXXVI)
+                  (Merv, MMXXVI)
                 </div>
               </div>
             </div>
@@ -224,7 +224,7 @@ export default function AboutPage() {
               <span className="meta-grp" style={{ color: "var(--paper)" }}>
                 <span>Quality Promise / Standards</span>
                 <span className="dot-mark" style={{ color: "var(--paper)" }}>•</span>
-                <span>GROSHA / Volume 01</span>
+                <span>Merv / Volume 01</span>
               </span>
               <span style={{ color: "var(--paper)" }}>005 / 005</span>
             </div>
@@ -238,7 +238,7 @@ export default function AboutPage() {
               </p>
               
               <div style={{ display: "flex", justifyContent: "center", gap: "16px" }}>
-                <Link className="btn btn-ghost" href="/products" style={{ background: "var(--paper)", color: "var(--ink)", borderColor: "var(--paper)" }}>
+                <Link className="btn btn-ghost" href="/#products" style={{ background: "var(--paper)", color: "var(--ink)", borderColor: "var(--paper)" }}>
                   Explore Our Products
                   <span className="arrow"><svg viewBox="0 0 24 24"><path d="M5 19L19 5M19 5H8M19 5v11" stroke="currentColor" strokeWidth="2" fill="none"/></svg></span>
                 </Link>
