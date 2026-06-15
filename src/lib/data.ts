@@ -299,7 +299,7 @@ export const products: Product[] = [
       "Premium IQF cauliflower florets with fresh flavor, natural color, and preserved nutrients.",
     fullDescription:
       "Merv IQF cauliflower combines the fresh flavor, natural color, and nutritional value of fresh cauliflower with the convenience and long shelf life of frozen products. Carefully selected florets are frozen quickly to preserve quality and texture for home cooking, restaurants, catering, and food service.",
-    image: "/assets/products/cauliflower.jpg",
+    image: "/assets/new image/قرنبيط.png",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Florets"],
     nutrition: {
