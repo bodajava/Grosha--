@@ -324,8 +324,8 @@ export default function Home() {
                   <span className="label">Our products <span className="ix">· Nº 04</span></span>
                   <h2 className="display" style={{ marginTop: "30px" }}>A curated selection of <em>premium</em> IQF frozen <em>produce</em><span className="dot">.</span></h2>
                 </div>
-                <ProductCatalog />
               </div>
+              <ProductCatalog />
               <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }} data-reveal>
                 <a className="btn btn-primary" href="#contact">
                   Request full catalogue

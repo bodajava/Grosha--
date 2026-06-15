@@ -2502,18 +2502,6 @@ footer {
     gap: 20px !important;
   }
 
-  .lab {
-    padding: 12px !important;
-  }
-
-  .lab h4 {
-    font-size: 13px !important;
-  }
-
-  .lab p {
-    font-size: 11px !important;
-  }
-
   .method-step h4 {
     font-size: 15px;
   }
