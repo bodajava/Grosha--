@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { LanguagePicker } from "./LanguagePicker";
 
 interface NavLink {
   label: string;
@@ -171,7 +172,7 @@ export const Navbar = () => {
               <span className="pulse"></span>
               EXPORT READY &nbsp;·&nbsp; V1.0
             </Link>
-            <span>EN - AR</span>
+            <LanguagePicker />
           </span>
         </div>
       </div>
@@ -259,7 +260,7 @@ export const Navbar = () => {
             {/* ── Panel header ── */}
             <div style={{
               padding: "28px 32px 24px",
-              borderBottom: "1px solid rgba(239,231,210,0.10)",
+              borderBottom: "1px solid rgba(255,255,255,0.10)",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
@@ -283,7 +284,7 @@ export const Navbar = () => {
                 style={{
                   width: "40px", height: "40px",
                   borderRadius: "50%",
-                  border: "1px solid rgba(239,231,210,0.18)",
+                  border: "1px solid rgba(255,255,255,0.18)",
                   background: "transparent",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   cursor: "pointer",
@@ -293,7 +294,7 @@ export const Navbar = () => {
                   transition: "all 200ms ease",
                 }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--coral)")}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(239,231,210,0.18)")}
+                onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)")}
               >
                 ×
               </button>
@@ -305,7 +306,7 @@ export const Navbar = () => {
               <span ref={el => { rulerRefs.current[0] = el; }} style={{
                 display: "block",
                 fontSize: "9px", fontWeight: 700, letterSpacing: "0.2em",
-                textTransform: "uppercase", color: "rgba(239,231,210,0.35)",
+                textTransform: "uppercase", color: "rgba(255,255,255,0.35)",
                 marginBottom: "28px",
               }}>
                 Navigation
@@ -316,14 +317,14 @@ export const Navbar = () => {
                   <li
                     key={link.href}
                     ref={el => { itemRefs.current[i] = el; }}
-                    style={{ borderBottom: "1px solid rgba(239,231,210,0.08)" }}
+                    style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
                   >
                     {/* ruler line */}
                     <span
                       ref={el => { rulerRefs.current[i + 1] = el; }}
                       style={{
                         display: "block", height: "1px",
-                        background: "rgba(239,231,210,0.08)",
+                        background: "rgba(255,255,255,0.08)",
                         transformOrigin: "left",
                       }}
                     />
@@ -353,7 +354,7 @@ export const Navbar = () => {
                         fontFamily: "var(--mono)",
                         fontStyle: "normal",
                         fontSize: "11px",
-                        color: "rgba(239,231,210,0.3)",
+                        color: "rgba(255,255,255,0.3)",
                         letterSpacing: "0.1em",
                       }}>
                         {link.num ? `(${link.num})` : "→"}
@@ -369,7 +370,7 @@ export const Navbar = () => {
               ref={footerRef}
               style={{
                 padding: "28px 32px",
-                borderTop: "1px solid rgba(239,231,210,0.10)",
+                borderTop: "1px solid rgba(255,255,255,0.10)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
@@ -381,7 +382,7 @@ export const Navbar = () => {
                 style={{
                   display: "block", textAlign: "center",
                   padding: "14px 24px", borderRadius: "100px",
-                  border: "1px solid rgba(239,231,210,0.22)",
+                  border: "1px solid rgba(255,255,255,0.22)",
                   color: "var(--bone)",
                   fontFamily: "var(--sans)",
                   fontWeight: 800, fontSize: "11px",
@@ -389,8 +390,8 @@ export const Navbar = () => {
                   textDecoration: "none",
                   transition: "all 200ms ease",
                 }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(239,231,210,0.5)"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(239,231,210,0.22)"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.22)"; }}
               >
                 Full Catalog
               </Link>
@@ -407,19 +408,23 @@ export const Navbar = () => {
                   letterSpacing: "0.18em", textTransform: "uppercase",
                   textDecoration: "none",
                   transition: "background 200ms ease",
-                  boxShadow: "0 8px 24px -6px rgba(110, 116, 72, 0.5)",
+                  boxShadow: "0 8px 24px -6px rgba(45, 138, 78, 0.5)",
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#545a33"; }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#1e5e33"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "var(--coral)"; }}
               >
                 Get a Quote
               </Link>
 
+              <div style={{ display: "flex", justifyContent: "center", marginTop: "12px", marginBottom: "4px" }}>
+                <LanguagePicker />
+              </div>
+
               {/* Small location line */}
               <p style={{
                 textAlign: "center", margin: "8px 0 0",
                 fontFamily: "var(--mono)", fontSize: "9px",
-                color: "rgba(239,231,210,0.25)",
+                color: "rgba(255,255,255,0.25)",
                 letterSpacing: "0.12em", textTransform: "uppercase",
               }}>
                 Giza, Egypt · 30°00′N 31°12′E

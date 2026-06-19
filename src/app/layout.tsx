@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-  style: ["normal", "italic"],
-});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -144,7 +137,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="ltr" className={`${playfair.variable} ${inter.variable} ${interTight.variable} ${jetbrains.variable}`}>
+    <html lang="ar" dir="ltr" className={`${inter.variable} ${interTight.variable} ${jetbrains.variable}`}>
       <head>
         <meta name="google-site-verification" content="google-site-verification-code" />
         <meta name="geo.region" content="EG" />
