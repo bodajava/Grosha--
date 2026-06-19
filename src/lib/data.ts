@@ -326,7 +326,7 @@ export const products: Product[] = [
       "Golden frozen French fries prepared from selected potatoes for crispy texture and delicious taste.",
     fullDescription:
       "Merv frozen French fries are carefully prepared from selected potatoes and frozen to preserve their golden color, consistent cut, and delicious potato taste. They are ideal for restaurants, hotels, catering, quick service, and home cooking. With the right preparation, they deliver a crispy outside and soft inside with reliable quality all year long.",
-    image: "/assets/new image/ضضضضضض.png",
+    image: "/assets/new image/WhatsApp Image 2026-06-09 at 17.31.16.jpeg",
     packingTypes: ["1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Straight Cut", "Shoestring", "Crinkle Cut"],
     nutrition: {
