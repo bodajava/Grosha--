@@ -183,10 +183,10 @@ export const Navbar = () => {
             <Image
               src="/assets/logo.png"
               alt="Merv"
-              width={80}
-              height={36}
+              width={110}
+              height={50}
               className="object-contain"
-              style={{ height: "36px", width: "auto" }}
+              style={{ height: "50px", width: "auto" }}
               priority
             />
             <span className="brand-meta"><b>PREMIUM IQF</b>FRUITS & VEGETABLES</span>
@@ -268,8 +268,8 @@ export const Navbar = () => {
                 <Image
                   src="/assets/logo.png"
                   alt="Merv"
-                  width={80} height={36}
-                  style={{ height: "32px", width: "auto", filter: "brightness(0) invert(1)" }}
+                  width={100} height={44}
+                  style={{ height: "40px", width: "auto", filter: "brightness(0) invert(1)" }}
                 />
                 <span style={{ color: "var(--bone)", fontFamily: "var(--sans)", fontWeight: 900, fontSize: "14px", letterSpacing: "0.15em", textTransform: "uppercase" }}>
                   Merv
@@ -407,9 +407,9 @@ export const Navbar = () => {
                   letterSpacing: "0.18em", textTransform: "uppercase",
                   textDecoration: "none",
                   transition: "background 200ms ease",
-                  boxShadow: "0 8px 24px -6px rgba(237,111,92,0.5)",
+                  boxShadow: "0 8px 24px -6px rgba(110, 116, 72, 0.5)",
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#d45a47"; }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#545a33"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "var(--coral)"; }}
               >
                 Get a Quote

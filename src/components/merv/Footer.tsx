@@ -33,10 +33,10 @@ export const Footer = () => {
                 <Image
                   src="/assets/logo.png"
                   alt="Merv"
-                  width={80}
-                  height={36}
+                  width={100}
+                  height={44}
                   className="object-contain"
-                  style={{ height: '36px', width: 'auto' }}
+                  style={{ height: '40px', width: 'auto' }}
                 />
               </span>
               <span>Merv</span>

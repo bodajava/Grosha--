@@ -53,8 +53,8 @@
   --ink-soft: #2a2620;
   --ink-mute: #5a5448;
   --ink-faint: #8b8676;
-  --coral: #ed6f5c;
-  --coral-soft: #f08e7c;
+  --coral: #6e7448;
+  --coral-soft: #8c926c;
   --mustard: #e9b94a;
   --olive: #6e7448;
   --bone: #f7f1de;
@@ -68,7 +68,7 @@
   --foreground: var(--ink);
 
   --primary: var(--coral);
-  --primary-dim: #e25e4a;
+  --primary-dim: #545a33;
   --primary-foreground: #ffffff;
 
   --secondary: var(--olive);
@@ -230,17 +230,17 @@
 @keyframes pulse-glow {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(237, 111, 92, 0.7);
+    box-shadow: 0 0 0 0 rgba(110, 116, 72, 0.7);
   }
 
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 5px rgba(237, 111, 92, 0);
+    box-shadow: 0 0 0 5px rgba(110, 116, 72, 0);
   }
 
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(237, 111, 92, 0);
+    box-shadow: 0 0 0 0 rgba(110, 116, 72, 0);
   }
 }
 
@@ -267,7 +267,7 @@
   gap: 12px;
   font-family: var(--sans);
   font-weight: 900;
-  font-size: 18px;
+  font-size: 21px;
   letter-spacing: -0.02em;
   color: var(--ink);
   text-decoration: none;
@@ -277,7 +277,7 @@
 
 .brand-meta {
   font-family: var(--sans);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.08em;
@@ -305,7 +305,7 @@
 .nav-links a {
   font-family: var(--sans);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 13.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-mute);
@@ -339,12 +339,12 @@
 .nav-cta {
   font-family: var(--sans);
   font-weight: 800;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--paper);
   background: var(--ink);
-  padding: 10px 22px;
+  padding: 11px 24px;
   border-radius: 6px;
   text-decoration: none;
   border: 1px solid var(--ink);
@@ -1491,7 +1491,7 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(237, 111, 92, 0.35);
+  border: 1px solid rgba(110, 116, 72, 0.35);
   padding: 10px 20px;
   border-radius: 100px;
   transition: all 250ms ease;
@@ -1532,7 +1532,7 @@ section {
   transform: translateY(-10px) scale(1.015);
   box-shadow:
     0 40px 80px -16px rgba(21, 20, 15, 0.6),
-    0 0 0 1px rgba(237, 111, 92, 0.25);
+    0 0 0 1px rgba(110, 116, 72, 0.25);
 }
 
 .work-card.alt:hover {
@@ -1643,7 +1643,7 @@ section {
 .nav-btn:hover {
   border-color: var(--coral);
   color: var(--coral);
-  background: rgba(237, 111, 92, 0.08);
+  background: rgba(110, 116, 72, 0.08);
 }
 
 .nav-btn.active {
