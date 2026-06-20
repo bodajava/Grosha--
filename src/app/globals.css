@@ -178,6 +178,8 @@
 
 /* Topbar & Header */
 .topbar {
+  position: relative;
+  z-index: 110;
   background: var(--paper-warm);
   border-bottom: 1px solid var(--line-soft);
   padding: 10px 0;
@@ -187,6 +189,21 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-mute);
+}
+
+/* Custom Slim Scrollbar for Language Dropdown */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(21, 20, 15, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--coral);
 }
 
 .topbar-inner {

@@ -157,6 +157,19 @@ export const LanguagePicker = () => {
         .goog-te-combo {
           display: none !important;
         }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(21, 20, 15, 0.15);
+          border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: var(--coral);
+        }
       `;
       document.head.appendChild(style);
     }
@@ -243,7 +256,10 @@ export const LanguagePicker = () => {
           </div>
 
           {/* Languages List */}
-          <div className="max-height-[240px] overflow-y-auto py-1 max-h-60 custom-scrollbar">
+          <div 
+            className="overflow-y-auto py-1 custom-scrollbar"
+            style={{ maxHeight: "200px" }}
+          >
             {filteredLanguages.length > 0 ? (
               filteredLanguages.map((lang) => (
                 <button
