@@ -44,10 +44,22 @@ export const LanguagePicker = () => {
   const [currentLang, setCurrentLang] = useState("en");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Helper to set Google Translate cookie
+  // Helper to set Google Translate cookie safely
   const setTranslateCookie = (langCode: string) => {
+    // Delete existing cookies to prevent conflicts
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+
+    // Set new cookie on root path
     document.cookie = `googtrans=/en/${langCode}; path=/;`;
-    document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname};`;
+    
+    // Only set domain attribute on production domains, not on localhost
+    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    if (!isLocalhost) {
+      document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${window.location.hostname};`;
+      document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname};`;
+    }
   };
 
   // Helper to get cookies
@@ -179,7 +191,7 @@ export const LanguagePicker = () => {
     if (!document.getElementById(scriptId)) {
       const script = document.createElement("script");
       script.id = scriptId;
-      script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
       document.body.appendChild(script);
 
@@ -204,20 +216,14 @@ export const LanguagePicker = () => {
   }, []);
 
   const translatePage = (langCode: string) => {
-    const selectEl = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-    if (selectEl) {
-      setTranslateCookie(langCode);
-      selectEl.value = langCode;
-      selectEl.dispatchEvent(new Event("change"));
-      setCurrentLang(langCode);
-      setIsOpen(false);
-    } else {
-      // Fallback: set cookie and reload
-      setTranslateCookie(langCode);
-      setCurrentLang(langCode);
-      setIsOpen(false);
+    setTranslateCookie(langCode);
+    setCurrentLang(langCode);
+    setIsOpen(false);
+    
+    // Brief delay to ensure cookie is written, then reload
+    setTimeout(() => {
       window.location.reload();
-    }
+    }, 150);
   };
 
   const filteredLanguages = LANGUAGES.filter((lang) =>
