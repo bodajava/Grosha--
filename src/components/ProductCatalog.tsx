@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { products } from "@/lib/data";
 
 type Category = "All" | "Fruits" | "Vegetables";
@@ -105,7 +106,7 @@ export function ProductGrid() {
           <Link key={product.id} href={`/products/${product.id}`} className="lab" data-reveal style={{ textDecoration: 'none' }}>
             <div className="lab-img">
               <span className="badge">{product.category === "Fruits" ? "Fruit" : "Vegetable"}</span>
-              <img src={product.image} alt={product.name} />
+              <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 20vw" />
             </div>
             <div className="num-row">
               <span>{codeNum}</span>

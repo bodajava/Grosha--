@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/merv/Navbar";
 import { Footer } from "@/components/merv/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
@@ -88,7 +89,7 @@ export default function QualityPage() {
                   </div>
                 </div>
                 <div className="hero-art" data-reveal="scale">
-                  <img src="/assets/real_Image/global_shipping.jpg" alt="Quality Control" />
+                  <Image src="/assets/real_Image/global_shipping.jpg" alt="Quality Control" width={736} height={736} priority />
                 </div>
               </div>
             </div>

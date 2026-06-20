@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/merv/Navbar";
 import { Footer } from "@/components/merv/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
@@ -53,7 +54,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="hero-art" data-reveal="scale">
-                  <img src="/assets/real_Image/sunrise_harvest.jpg" alt="Artisanal Sunrise Harvest" />
+                  <Image src="/assets/real_Image/sunrise_harvest.jpg" alt="Artisanal Sunrise Harvest" width={736} height={981} priority />
                 </div>
               </div>
             </div>
@@ -143,7 +144,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="about-art" data-reveal="right">
-                  <img src="/assets/real_Image/cancer_risk_reduction.jpg" alt="Sustainable Farm Harvesting" />
+                  <Image src="/assets/real_Image/cancer_risk_reduction.jpg" alt="Sustainable Farm Harvesting" width={735} height={490} />
                   <div className="about-caption">
                     <b>Freshness locked within 4 hours of farm picking.</b>
                     (Merv, MMXXVI)
@@ -184,7 +185,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="about-art" data-reveal="left" style={{ direction: "ltr" }}>
-                  <img src="/assets/real_Image/global_shipping.jpg" alt="Logistics Shipping Container" />
+                  <Image src="/assets/real_Image/global_shipping.jpg" alt="Logistics Shipping Container" width={736} height={736} />
                   <div className="about-caption">
                     <b>Climate-controlled cold storage systems.</b>
                     (Merv, MMXXVI)

@@ -201,7 +201,7 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ id: s
 
                 {/* Merv brand flat-lay image */}
                 <div className="pd-brand-img" data-reveal>
-                  <Image src="/assets/new image/export_shipping.png" alt="Merv export products" fill className="object-cover" />
+                  <Image src="/assets/new image/export_shipping.jpg" alt="Merv export products" fill className="object-cover" />
                   <div className="pd-brand-img-caption">
                     <span style={{ color: "white", fontSize: "10px", fontWeight: 900, letterSpacing: "0.25em", textTransform: "uppercase" }}>
                       Merv · Premium Export Range

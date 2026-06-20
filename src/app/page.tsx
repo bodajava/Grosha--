@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/merv/Navbar";
 import { Footer } from "@/components/merv/Footer";
 import { ProductProvider, ProductPills, ProductGrid } from "@/components/ProductCatalog";
@@ -105,7 +106,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero-art" data-reveal="scale">
-                <img src="/assets/new image/hero_mockup.png" alt="Merv — Premium IQF Frozen Exports" />
+                <Image src="/assets/new image/hero_mockup.jpg" alt="Merv — Premium IQF Frozen Exports" width={1000} height={766} priority />
               </div>
             </div>
           </section>
@@ -219,7 +220,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="about-art" data-reveal="right">
-                  <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80" alt="Farm fields and agriculture" />
+                  <Image src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80" alt="Farm fields and agriculture" width={800} height={533} />
                   <div className="about-side-note">
                     <b></b>
                     From Nile Delta<br />fields to global<br />cold-chain, we<br />control the full<br />export journey.
@@ -249,7 +250,7 @@ export default function Home() {
                 <div className="capabilities-art" data-reveal="left">
                   <span className="corner tl"></span>
                   <span className="corner br"></span>
-                  <img src="/assets/new image/fruits_catalogue.png" alt="IQF frozen berries" />
+                  <Image src="/assets/new image/fruits_catalogue.jpg" alt="IQF frozen berries" width={1000} height={800} />
                   <div className="ribbon"><b>Merv</b> &nbsp;·&nbsp; PRODUCT CATALOGUE &nbsp;·&nbsp; AF/26</div>
                 </div>
                 <div className="capabilities-copy" data-reveal>
@@ -365,25 +366,33 @@ export default function Home() {
                   <div className="num">01</div>
                   <h4>Harvest <span className="arrow-r">→</span></h4>
                   <p>Sourced at peak ripeness from our network of 50+ Egyptian farms. Field-to-factory within 2 hours.</p>
-                  <div className="img"><img src="/assets/quality_harvest_step.png" alt="Harvest" /></div>
+                  <div className="img" style={{ position: "relative", width: "100%", height: "100%" }}>
+                    <Image src="/assets/quality_harvest_step.jpg" alt="Harvest" width={1200} height={1200} className="object-cover" />
+                  </div>
                 </div>
                 <div className="method-step" data-reveal>
                   <div className="num">02</div>
                   <h4>Blanching <span className="arrow-r">→</span></h4>
                   <p>Precision steam blanching to preserve colour, texture, and nutrients. Enzymatic activity halted at the molecular level.</p>
-                  <div className="img"><img src="/assets/quality_blanching_step.png" alt="Processing facility" /></div>
+                  <div className="img" style={{ position: "relative", width: "100%", height: "100%" }}>
+                    <Image src="/assets/quality_blanching_step.jpg" alt="Processing facility" width={1200} height={1200} className="object-cover" />
+                  </div>
                 </div>
                 <div className="method-step" data-reveal>
                   <div className="num">03</div>
                   <h4>IQF Blast <span className="arrow-r">→</span></h4>
                   <p>-40°C individual quick freezing. Each morsel frozen separately — zero clumping, zero moisture loss, nutrient lock.</p>
-                  <div className="img"><img src="/assets/quality_iqf_blast_step.png" alt="IQF freezing facility" /></div>
+                  <div className="img" style={{ position: "relative", width: "100%", height: "100%" }}>
+                    <Image src="/assets/quality_iqf_blast_step.jpg" alt="IQF freezing facility" width={1200} height={1200} className="object-cover" />
+                  </div>
                 </div>
                 <div className="method-step" data-reveal>
                   <div className="num">04</div>
                   <h4>Audit</h4>
                   <p>12 internal quality checks, laboratory pathogen testing, purity analysis at 99.9%. HACCP and ISO 9001 verified.</p>
-                  <div className="img"><img src="/assets/quality_audit_step.png" alt="Quality control lab" /></div>
+                  <div className="img" style={{ position: "relative", width: "100%", height: "100%" }}>
+                    <Image src="/assets/quality_audit_step.jpg" alt="Quality control lab" width={1200} height={1200} className="object-cover" />
+                  </div>
                 </div>
               </div>
               <div className="method-foot">
@@ -421,7 +430,7 @@ export default function Home() {
                   </div>
                   <h3>Rotterdam</h3>
                   <p>European distribution hub serving 20+ markets. Temperature-controlled warehousing at -24°C. Direct weekly consolidation.</p>
-                  <div className="img"><img src="/assets/logistics_rotterdam_hub.png" alt="Rotterdam logistics" /></div>
+                  <div className="img" style={{ position: "relative", width: "100%", height: "100%" }}><Image src="/assets/logistics_rotterdam_hub.jpg" alt="Rotterdam logistics" width={1200} height={1200} className="object-cover" /></div>
                   <div className="meta-row">
                     <span className="year">EUROPE · HUB 01</span>
                     <span>AF/26</span>
@@ -434,7 +443,7 @@ export default function Home() {
                   </div>
                   <h3>New Jersey</h3>
                   <p>North American gateway. Cold storage at Newark, 24/7 IoT temperature monitoring. Distribution across US and Canada.</p>
-                  <div className="img"><img src="/assets/logistics_newjersey_hub.png" alt="New Jersey port" /></div>
+                  <div className="img" style={{ position: "relative", width: "100%", height: "100%" }}><Image src="/assets/logistics_newjersey_hub.jpg" alt="New Jersey port" width={1200} height={1200} className="object-cover" /></div>
                   <div className="meta-row">
                     <span className="year">AMERICAS · HUB 02</span>
                     <span>AF/26</span>
@@ -470,27 +479,27 @@ export default function Home() {
               </div>
               <div className="gallery-grid">
                 <div className="gallery-item" data-reveal>
-                  <img src="/assets/gallery_nile_delta_farms.png" alt="Egyptian farm landscape" />
+                  <Image src="/assets/gallery_nile_delta_farms.jpg" alt="Egyptian farm landscape" width={1200} height={1200} className="object-cover" />
                   <span className="gloss">01 · Nile Delta Farms</span>
                 </div>
                 <div className="gallery-item" data-reveal>
-                  <img src="/assets/gallery_cold_storage.png" alt="Cold storage facility" />
+                  <Image src="/assets/gallery_cold_storage.jpg" alt="Cold storage facility" width={1200} height={1200} className="object-cover" />
                   <span className="gloss">02 · Cold Storage</span>
                 </div>
                 <div className="gallery-item" data-reveal>
-                  <img src="/assets/gallery_iqf_processing.png" alt="IQF processing line" />
+                  <Image src="/assets/gallery_iqf_processing.jpg" alt="IQF processing line" width={1200} height={1200} className="object-cover" />
                   <span className="gloss">03 · IQF Processing</span>
                 </div>
                 <div className="gallery-item" data-reveal>
-                  <img src="/assets/gallery_export_logistics.png" alt="Export logistics" />
+                  <Image src="/assets/gallery_export_logistics.jpg" alt="Export logistics" width={1200} height={1200} className="object-cover" />
                   <span className="gloss">04 · Export Logistics</span>
                 </div>
                 <div className="gallery-item" data-reveal>
-                  <img src="/assets/gallery_quality_control.png" alt="Quality control lab" />
+                  <Image src="/assets/gallery_quality_control.jpg" alt="Quality control lab" width={1200} height={1200} className="object-cover" />
                   <span className="gloss">05 · Quality Control</span>
                 </div>
                 <div className="gallery-item" data-reveal>
-                  <img src="/assets/gallery_global_shipping.png" alt="Global shipping containers" />
+                  <Image src="/assets/gallery_global_shipping.jpg" alt="Global shipping containers" width={1200} height={1200} className="object-cover" />
                   <span className="gloss">06 · Global Shipping</span>
                 </div>
               </div>
@@ -544,8 +553,8 @@ export default function Home() {
                     <span style={{ marginLeft: "auto" }}>30.0° N · 31.2° E</span>
                   </div>
                 </div>
-                <div className="cta-art" data-reveal="right">
-                  <img src="/assets/new image/export_shipping.png" alt="Global export shipping" />
+                 <div className="cta-art" data-reveal="right">
+                  <Image src="/assets/new image/export_shipping.jpg" alt="Global export shipping" width={1000} height={666} />
                   <div className="index">Nº 08</div>
                   <div className="ribbon">Merv &nbsp;·&nbsp; EXPORT</div>
                 </div>

@@ -31,7 +31,7 @@ export const products: Product[] = [
       "Premium IQF strawberries preserved all year round with their natural sweetness, bright color, and fresh taste.",
     fullDescription:
       "Merv provides premium IQF strawberries all year long, preserving their delicious taste, natural color, and nutritional value through advanced freezing technologies. Strawberries are rich in vitamin C and antioxidants, making them perfect for desserts, smoothies, juices, bakery, and food service applications.",
-    image: "/assets/new image/يص.png",
+    image: "/assets/new image/يص.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Diced", "Whole calibrated", "Quarters", "Whole uncalibrated"],
     nutrition: {
@@ -58,7 +58,7 @@ export const products: Product[] = [
       "Premium IQF mango cubes with tropical sweetness, golden color, and natural texture preserved through advanced freezing.",
     fullDescription:
       "Merv delivers premium IQF mango all year long, preserving its tropical sweetness, bright golden color, and natural texture through advanced freezing technology. Carefully selected mangoes are cut and individually quick frozen to keep their fresh taste and nutritional value. Perfect for juices, smoothies, desserts, fruit salads, hotels, restaurants, and food service use.",
-    image: "/assets/new image/تدت.png",
+    image: "/assets/new image/تدت.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Diced", "Chunks"],
     nutrition: {
@@ -85,7 +85,7 @@ export const products: Product[] = [
       "Sweet, juicy, and crunchy IQF pomegranate kernels available all year with clean premium quality.",
     fullDescription:
       "Merv provides premium IQF pomegranate kernels with a sweet, juicy, and crunchy texture. The product is carefully prepared and frozen to preserve its natural taste, color, and nutritional value. Perfect for desserts, salads, smoothies, juices, toppings, and food service applications.",
-    image: "/assets/new image/زععزعزع.png",
+    image: "/assets/new image/زععزعزع.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Kernels"],
     nutrition: {
@@ -112,7 +112,7 @@ export const products: Product[] = [
       "A colorful IQF mix of premium vegetables preserved with fresh taste, natural color, and excellent quality.",
     fullDescription:
       "Merv mixed vegetables are carefully selected, cut, and individually quick frozen to preserve their fresh taste, natural color, and nutritional value. This mix usually includes peas, carrots, green beans, sweet corn, and other vegetables depending on the blend. It is ideal for side dishes, soups, rice, casseroles, restaurants, catering, and food service.",
-    image: "/assets/new image/jj.png",
+    image: "/assets/new image/jj.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
       vitamins: [
@@ -138,7 +138,7 @@ export const products: Product[] = [
       "Premium IQF broccoli florets preserved with natural green color, fresh texture, and high nutritional value.",
     fullDescription:
       "Merv IQF broccoli is carefully selected, cut into florets, and frozen quickly to preserve its natural appearance, texture, color, and nutritional value. Broccoli is low in calories and rich in vitamins, minerals, and antioxidants. It is ideal for healthy meals, soups, side dishes, restaurants, catering, and frozen food service.",
-    image: "/assets/new image/عزعزع.png",
+    image: "/assets/new image/عزعزع.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Florets"],
     nutrition: {
@@ -165,7 +165,7 @@ export const products: Product[] = [
       "Rich green frozen molokhia with authentic oriental taste, prepared and frozen to preserve freshness.",
     fullDescription:
       "Merv frozen molokhia is carefully selected, prepared, and frozen to preserve its rich green color, natural taste, and authentic oriental flavor. It is available in minced or leaves form depending on customer needs. Molokhia is known for its vitamins, minerals, and traditional value in many Middle Eastern meals.",
-    image: "/assets/new image/ججججج.png",
+    image: "/assets/new image/ججججج.jpg",
     packingTypes: ["400 grams"],
     types: ["Minced", "Leaves"],
     nutrition: {
@@ -192,7 +192,7 @@ export const products: Product[] = [
       "Sweet and tender IQF green peas frozen at peak freshness to preserve their taste and bright green color.",
     fullDescription:
       "Merv IQF green peas are picked and frozen using advanced freezing technology to keep their natural sweetness, crispness, and bright green color. They are perfect for soups, rice, side dishes, salads, catering, restaurants, and food service use.",
-    image: "/assets/new image/عل.png",
+    image: "/assets/new image/عل.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     nutrition: {
       vitamins: [
@@ -218,7 +218,7 @@ export const products: Product[] = [
       "Premium IQF spinach preserved with deep green color, fresh taste, and excellent nutritional value.",
     fullDescription:
       "Merv frozen spinach is carefully prepared and individually quick frozen to preserve its deep green color, natural taste, and nutritional value. Spinach is rich in vitamin K, vitamin A, vitamin C, iron, and minerals. It is suitable for pies, soups, sauces, side dishes, restaurants, and food service.",
-    image: "/assets/new image/000000.png",
+    image: "/assets/new image/000000.jpg",
     packingTypes: ["400 grams"],
     types: ["Chopped", "Leaves"],
     nutrition: {
@@ -245,7 +245,7 @@ export const products: Product[] = [
       "Top quality IQF okra preserved with its natural shape, green color, and authentic taste.",
     fullDescription:
       "Merv IQF okra is carefully selected, graded, and frozen to preserve its natural shape, fresh green color, and authentic taste. Okra is rich in vitamins A and C and contains antioxidants. It is perfect for traditional dishes, soups, stews, restaurants, catering, and food service.",
-    image: "/assets/new image/دبس.png",
+    image: "/assets/new image/دبس.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Extra 0:2.5", "Zero 2.5:3.5", "One 3.5:4.5", "Two 4.5:5.5"],
     nutrition: {
@@ -272,7 +272,7 @@ export const products: Product[] = [
       "Cleanly prepared diced colocasia, frozen to preserve its traditional taste and reliable quality.",
     fullDescription:
       "Merv IQF colocasia is cleanly prepared, peeled, diced, and frozen to preserve its taste, texture, and quality. Colocasia is widely used in traditional dishes and is valued for its energy content and rich texture. It is suitable for retail, restaurants, catering, and export markets.",
-    image: "/assets/new image/سد.png",
+    image: "/assets/new image/سد.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Diced"],
     nutrition: {
@@ -299,7 +299,7 @@ export const products: Product[] = [
       "Premium IQF cauliflower florets with fresh flavor, natural color, and preserved nutrients.",
     fullDescription:
       "Merv IQF cauliflower combines the fresh flavor, natural color, and nutritional value of fresh cauliflower with the convenience and long shelf life of frozen products. Carefully selected florets are frozen quickly to preserve quality and texture for home cooking, restaurants, catering, and food service.",
-    image: "/assets/new image/قرنبيط.png",
+    image: "/assets/new image/قرنبيط.jpg",
     packingTypes: ["400 grams", "1 kilo", "2.5 kilos", "10 kilos"],
     types: ["Florets"],
     nutrition: {

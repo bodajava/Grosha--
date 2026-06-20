@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/merv/Navbar";
 import { Footer } from "@/components/merv/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
@@ -80,7 +81,7 @@ export default function LogisticsPage() {
                   </div>
                 </div>
                 <div className="hero-art" data-reveal="scale">
-                  <img src="/assets/real_Image/global_shipping.jpg" alt="Global Shipping Container Port" />
+                  <Image src="/assets/real_Image/global_shipping.jpg" alt="Global Shipping Container Port" width={736} height={736} priority />
                 </div>
               </div>
             </div>
@@ -185,7 +186,7 @@ export default function LogisticsPage() {
                   </div>
                 </div>
                 <div className="about-art" data-reveal="right">
-                  <img src="/assets/real_Image/global_shipping.jpg" alt="Distribution Facility" />
+                  <Image src="/assets/real_Image/global_shipping.jpg" alt="Distribution Facility" width={736} height={736} />
                   <div className="about-caption">
                     <b>Real-time dispatch and loading facilities.</b>
                     (Merv, MMXXVI)
