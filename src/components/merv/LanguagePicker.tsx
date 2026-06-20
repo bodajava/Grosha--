@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Globe, ChevronDown, Search } from "lucide-react";
+import { Globe, Search } from "lucide-react";
 
 export const LANGUAGES = [
   { code: "en", name: "English", flag: "🇺🇸" },
@@ -44,9 +44,99 @@ export const LanguagePicker = () => {
   const [currentLang, setCurrentLang] = useState("en");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Initialize Google Translate
+  // Helper to set Google Translate cookie
+  const setTranslateCookie = (langCode: string) => {
+    document.cookie = `googtrans=/en/${langCode}; path=/;`;
+    document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname};`;
+  };
+
+  // Helper to get cookies
+  const getCookie = (name: string): string | null => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()?.split(";").shift() || null;
+    return null;
+  };
+
+  // Detect location and browser language
   useEffect(() => {
-    // Add Google Translate styles to hide bar
+    const cookieVal = getCookie("googtrans");
+    let initialLang = "en";
+    
+    if (cookieVal) {
+      const parts = cookieVal.split("/");
+      if (parts.length >= 3) {
+        initialLang = parts[2];
+      }
+    }
+    setCurrentLang(initialLang);
+
+    // If no preference cookie is set yet, auto-detect
+    if (!cookieVal) {
+      // 1. First check browser preferred language
+      const browserLang = navigator.language.split("-")[0];
+      const isSupported = LANGUAGES.some((l) => l.code === browserLang);
+      
+      if (isSupported && browserLang !== "en") {
+        setTranslateCookie(browserLang);
+        setCurrentLang(browserLang);
+        window.location.reload();
+        return;
+      }
+
+      // 2. Double check geolocation (for case: living in France but browser is English)
+      fetch("https://ipapi.co/json/")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.country_code) {
+            const countryLangMap: { [key: string]: string } = {
+              FR: "fr",
+              DE: "de",
+              ES: "es",
+              IT: "it",
+              RU: "ru",
+              CN: "zh-CN",
+              JP: "ja",
+              TR: "tr",
+              NL: "nl",
+              PT: "pt",
+              KR: "ko",
+              IN: "hi",
+              GR: "el",
+              RO: "ro",
+              UA: "uk",
+              ID: "id",
+              IR: "fa",
+              PK: "ur",
+              BD: "bn",
+              IL: "he",
+              DA: "da",
+              FI: "fi",
+              NO: "no",
+              HU: "hu",
+              CZ: "cs",
+              SK: "sk",
+              // Arab countries
+              EG: "ar", SA: "ar", AE: "ar", QA: "ar", KW: "ar", OM: "ar", BH: "ar", 
+              JO: "ar", LB: "ar", SY: "ar", IQ: "ar", YE: "ar", LY: "ar", DZ: "ar", 
+              MA: "ar", TN: "ar", SD: "ar",
+            };
+            
+            const detectedLang = countryLangMap[data.country_code];
+            if (detectedLang && detectedLang !== "en") {
+              setTranslateCookie(detectedLang);
+              setCurrentLang(detectedLang);
+              window.location.reload();
+            }
+          }
+        })
+        .catch((err) => console.log("GeoIP auto-translation error:", err));
+    }
+  }, []);
+
+  // Initialize Google Translate Element
+  useEffect(() => {
+    // Add Google Translate custom styles to hide original bar
     const styleId = "google-translate-custom-styles";
     if (!document.getElementById(styleId)) {
       const style = document.createElement("style");
@@ -71,7 +161,7 @@ export const LanguagePicker = () => {
       document.head.appendChild(style);
     }
 
-    // Add Google Translate Script
+    // Load Google Translate script
     const scriptId = "google-translate-script";
     if (!document.getElementById(scriptId)) {
       const script = document.createElement("script");
@@ -103,14 +193,19 @@ export const LanguagePicker = () => {
   const translatePage = (langCode: string) => {
     const selectEl = document.querySelector(".goog-te-combo") as HTMLSelectElement;
     if (selectEl) {
+      setTranslateCookie(langCode);
       selectEl.value = langCode;
       selectEl.dispatchEvent(new Event("change"));
       setCurrentLang(langCode);
       setIsOpen(false);
+    } else {
+      // Fallback: set cookie and reload
+      setTranslateCookie(langCode);
+      setCurrentLang(langCode);
+      setIsOpen(false);
+      window.location.reload();
     }
   };
-
-  const selectedLang = LANGUAGES.find((l) => l.code === currentLang) || LANGUAGES[0];
 
   const filteredLanguages = LANGUAGES.filter((lang) =>
     lang.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -121,21 +216,19 @@ export const LanguagePicker = () => {
       {/* Hidden google translate container */}
       <div id="google_translate_element" className="hidden" />
 
-      {/* Selector Button */}
+      {/* Selector Button - Just a clean Globe Icon (Planet shape) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         type="button"
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 hover:text-primary transition-all cursor-pointer"
-        style={{ fontFamily: "var(--sans)" }}
+        className="flex items-center justify-center w-8 h-8 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:border-primary hover:text-primary transition-all cursor-pointer shadow-sm"
+        aria-label="Select Language"
       >
-        <Globe className="w-3.5 h-3.5" />
-        <span>{selectedLang.flag} {selectedLang.name}</span>
-        <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+        <Globe className="w-4 h-4" />
       </button>
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-64 origin-top-right rounded-xl bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-900 shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute right-0 mt-2 w-64 origin-top-right rounded-xl bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-900 shadow-xl z-[99999] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
           {/* Search Input */}
           <div className="flex items-center gap-2 px-3 py-2 border-b border-neutral-200 dark:border-neutral-900 bg-neutral-50 dark:bg-neutral-900/50">
             <Search className="w-4 h-4 text-neutral-400" />
