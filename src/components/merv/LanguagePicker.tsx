@@ -225,7 +225,7 @@ export const LanguagePicker = () => {
   );
 
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
+    <div className="relative inline-block text-left z-[150]" ref={dropdownRef}>
       {/* Hidden google translate container */}
       <div id="google_translate_element" className="hidden" />
 
