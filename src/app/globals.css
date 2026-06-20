@@ -206,6 +206,33 @@
   background: var(--coral);
 }
 
+/* Hide Google Translate Banner & Toolbar completely */
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame,
+.goog-te-banner {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 .topbar-inner {
   display: flex;
   justify-content: space-between;

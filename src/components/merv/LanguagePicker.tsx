@@ -12,30 +12,6 @@ export const LANGUAGES = [
   { code: "it", name: "Italiano", flag: "🇮🇹" },
   { code: "ru", name: "Русский", flag: "🇷🇺" },
   { code: "zh-CN", name: "简体中文", flag: "🇨🇳" },
-  { code: "ja", name: "日本語", flag: "🇯🇵" },
-  { code: "tr", name: "Türkçe", flag: "🇹🇷" },
-  { code: "nl", name: "Nederlands", flag: "🇳🇱" },
-  { code: "pt", name: "Português", flag: "🇵🇹" },
-  { code: "ko", name: "한국어", flag: "🇰🇷" },
-  { code: "hi", name: "हिन्दी", flag: "🇮🇳" },
-  { code: "pl", name: "Polski", flag: "🇵🇱" },
-  { code: "sv", name: "Svenska", flag: "🇸🇪" },
-  { code: "vi", name: "Tiếng Việt", flag: "🇻🇳" },
-  { code: "th", name: "ไทย", flag: "🇹🇭" },
-  { code: "el", name: "Ελληνικά", flag: "🇬🇷" },
-  { code: "ro", name: "Română", flag: "🇷🇴" },
-  { code: "uk", name: "Українська", flag: "🇺🇦" },
-  { code: "id", name: "Bahasa Indonesia", flag: "🇮🇩" },
-  { code: "fa", name: "فارسی", flag: "🇮🇷" },
-  { code: "ur", name: "اردو", flag: "🇵🇰" },
-  { code: "bn", name: "বাংলা", flag: "🇧🇩" },
-  { code: "he", name: "עברית", flag: "🇮🇱" },
-  { code: "da", name: "Dansk", flag: "🇩🇰" },
-  { code: "fi", name: "Suomi", flag: "🇫🇮" },
-  { code: "no", name: "Norsk", flag: "🇳🇴" },
-  { code: "hu", name: "Magyar", flag: "🇭🇺" },
-  { code: "cs", name: "Čeština", flag: "🇨🇿" },
-  { code: "sk", name: "Slovenčina", flag: "🇸🇰" },
 ];
 
 export const LanguagePicker = () => {
@@ -197,7 +173,12 @@ export const LanguagePicker = () => {
 
       (window as any).googleTranslateElementInit = () => {
         new (window as any).google.translate.TranslateElement(
-          { pageLanguage: "en", layout: 0 },
+          { 
+            pageLanguage: "en", 
+            includedLanguages: "en,ar,es,fr,de,it,ru,zh-CN",
+            layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          },
           "google_translate_element"
         );
       };
@@ -219,11 +200,17 @@ export const LanguagePicker = () => {
     setTranslateCookie(langCode);
     setCurrentLang(langCode);
     setIsOpen(false);
-    
-    // Brief delay to ensure cookie is written, then reload
-    setTimeout(() => {
-      window.location.reload();
-    }, 150);
+
+    const selectEl = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (selectEl) {
+      selectEl.value = langCode;
+      selectEl.dispatchEvent(new Event("change"));
+    } else {
+      // Fallback: if select element is not loaded yet, reload the page to apply from cookie
+      setTimeout(() => {
+        window.location.reload();
+      }, 150);
+    }
   };
 
   const filteredLanguages = LANGUAGES.filter((lang) =>
